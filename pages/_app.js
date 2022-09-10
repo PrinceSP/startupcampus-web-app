@@ -1,5 +1,6 @@
 import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import { Container } from "@mui/system";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../styles/globals.css";
 
@@ -33,12 +34,15 @@ let theme = createTheme({
 theme = responsiveFontSizes(theme);
 
 function MyApp({ Component, pageProps }) {
+  const [pageLoaded, setPageLoaded] = useState(false);
+
+  useEffect(() => {
+    setPageLoaded(true);
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <Container>
-        <Component {...pageProps} />
-      </Container>
+      <Container>{pageLoaded ? <Component {...pageProps} /> : null}</Container>
     </ThemeProvider>
   );
 }
