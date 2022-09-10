@@ -16,7 +16,7 @@ export default function Section6() {
       </Grid>
       <Grid item container xs={12} spacing={3}>
         {testimoni.map((item) => (
-          <Grid item md={4}>
+          <Grid item md={4} key={item.name}>
             <Box width="100%" borderRadius={"20px"} overflow="hidden">
               <Box
                 width="100%"

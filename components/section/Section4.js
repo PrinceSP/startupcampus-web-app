@@ -29,7 +29,7 @@ function Section4() {
         </Grid>
         <Grid item container xs={12} md={4} spacing={6}>
           {count.map((e) => (
-            <Grid item xs={6} md={12}>
+            <Grid item xs={6} md={12} key={e.desc}>
               <Stack spacing={1} alignItems="center">
                 <Typography
                   textAlign={"center"}

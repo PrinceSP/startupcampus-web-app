@@ -22,7 +22,7 @@ function Section5() {
       </Grid>
       <Grid item container md={7} spacing={4}>
         {benefit.map((item) => (
-          <Grid item md={6}>
+          <Grid item md={6} key={item.title}>
             <Stack spacing={3} justifyContent="center">
               <Avatar />
               <Typography variant="h5" fontWeight={700} color="sc_blue.main">
