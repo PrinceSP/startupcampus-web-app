@@ -7,6 +7,7 @@ import MyButton from "../MyButton";
 function Section1() {
   return (
     <Grid
+      pt={{ xs: 6, md: 0 }}
       container
       component="section"
       direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
