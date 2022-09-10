@@ -27,4 +27,22 @@ export const kelas = [
     Tanggal: "7 Juli - 1 Desember 2022",
     online: "Offline",
   },
+  {
+    img: "/images/DS.png",
+    title: "Artificial Intelligence",
+    desc: "Mempelajari dan merancang penyelesaian permasalahan dengan menerapkan pendekatan dan model AI",
+    level: "Menengah",
+    bulan: "6 Bulan",
+    Tanggal: "7 Juli - 1 Desember 2022",
+    online: "Offline",
+  },
+  {
+    img: "/images/FO.png",
+    title: "Backend Engineer",
+    desc: "Merancang, memrogram, dan mengimplementasikan sisi backend dari sebuah website/web application",
+    level: "Menengah",
+    bulan: "6 Bulan",
+    Tanggal: "7 Juli - 1 Desember 2022",
+    online: "Offline",
+  },
 ];
