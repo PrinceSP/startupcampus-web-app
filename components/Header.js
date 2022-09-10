@@ -25,35 +25,35 @@ import Dropdown from "./Dropdown";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
-function NavItem({ children }) {
-  return (
-    <Typography
-      fontSize={14}
-      fontWeight={700}
-      color="sc_black.main"
-      sx={{
-        position: "relative",
-        "&::before": {
-          transition: ".3s",
-          content: "''",
-          position: "absolute",
-          width: "0%",
-          height: "5px",
-          borderRadius: "100px",
-          bottom: "-50%",
-          backgroundColor: "sc_blue.main",
-        },
-        "&:hover::before": {
-          width: "100%",
-        },
-      }}
-    >
-      {children}
-    </Typography>
-  );
-}
-
 export default function Header() {
+  function NavItem({ children }) {
+    return (
+      <Typography
+        fontSize={14}
+        fontWeight={700}
+        color="sc_black.main"
+        sx={{
+          position: "relative",
+          "&::before": {
+            transition: ".3s",
+            content: "''",
+            position: "absolute",
+            width: "0%",
+            height: "5px",
+            borderRadius: "100px",
+            bottom: "-50%",
+            backgroundColor: "sc_blue.main",
+          },
+          "&:hover::before": {
+            width: "100%",
+          },
+        }}
+      >
+        {children}
+      </Typography>
+    );
+  }
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -106,10 +106,11 @@ export default function Header() {
       </List>
     </Box>
   );
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" color="transparent" elevation={0}>
+        <AppBar color="transparent" elevation={0} position="absolute">
           <Container>
             <Toolbar
               sx={{

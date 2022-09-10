@@ -10,6 +10,8 @@ function Section1() {
       container
       component="section"
       direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
+      height={{ md: "100vh" }}
+      alignItems={{ md: "center" }}
     >
       <Grid item xs={12} md={6} pt={4}>
         <Stack spacing={2} alignItems="start">
