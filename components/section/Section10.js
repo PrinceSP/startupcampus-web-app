@@ -36,21 +36,25 @@ function Section10() {
           informasi terkini seputar dunia digital
         </Typography>
         <Box
+          mt={4}
           component="form"
           noValidate
           autoComplete="off"
           onSubmit={handleSubscribe}
+          sx={{
+            display: "flex",
+            width: "60vw",
+          }}
         >
           <Input
             type="email"
             placeholder="Masukkan email kamu disini"
             name="email"
             sx={{
-              width: { xs: "17rem", md: "25rem" },
+              flexGrow: 2,
               backgroundColor: "white",
               py: 1,
               px: 2,
-              mt: 2,
               borderTopLeftRadius: "5px",
               borderBottomLeftRadius: "5px",
               "&::before": {
@@ -65,7 +69,7 @@ function Section10() {
             type="submit"
             value="Kirim"
             sx={{
-              width: { xs: "10rem", md: "15rem" },
+              flexGrow: 1,
               cursor: "pointer",
               backgroundColor: "sc_yellow.main",
               py: 1,

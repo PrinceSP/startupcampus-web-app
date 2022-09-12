@@ -119,7 +119,7 @@ function Footer() {
         </Grid>
         <Divider color="white" />
         <Grid item xs={12} pt={4}>
-          <Typography textAlign={"center"} variant="body1" color="white">
+          <Typography textAlign={"center"} variant="subtitle2" color="white">
             ©Startup Campus. All right reserverd, 2022.
           </Typography>
         </Grid>
