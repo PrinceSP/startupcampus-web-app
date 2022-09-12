@@ -22,7 +22,7 @@ let theme = createTheme({
       main: "#2B2C27",
     },
     sc_gray: {
-      main: "#BDBDBD",
+      main: "#F3F5F5",
       dark: "#69686B",
     },
     sc_white: {

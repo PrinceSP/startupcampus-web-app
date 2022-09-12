@@ -6,22 +6,22 @@ import HighlightText from "../HighlightText";
 
 function Section4() {
   return (
-    <Grid container my={6} spacing={3}>
+    <Grid container my={6} py={4} spacing={3}>
       <Grid item xs={12}>
-        <Typography variant="h3" fontWeight={700}>
+        <Typography variant="h4" fontWeight={700}>
           <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi Ahli{" "}
           <br />
           Tanpa Perlu Keluar Rumah
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body1">
+        <Typography variant="body2" color={"sc_gray.dark"}>
           Startup Campus, sebuah bootcamp online dengan kurikulum yang up to
-          date dan terlengkap berbasis industri dengan berorientasi praktik dan
-          ditujukan untuk perubahan karier di masa depan
+          date dan <br /> terlengkap berbasis industri dengan berorientasi
+          praktik dan ditujukan untuk perubahan karier di masa depan
         </Typography>
       </Grid>
-      <Grid item container xs={12} spacing={3}>
+      <Grid item mt={5} container xs={12} spacing={6}>
         <Grid item xs={12} md={8}>
           <Box overflow={"hidden"} borderRadius={"20px"}>
             <Image src={"/images/meeting.png"} width={854} height={524} />
@@ -33,13 +33,17 @@ function Section4() {
               <Stack spacing={1} alignItems="center">
                 <Typography
                   textAlign={"center"}
-                  variant="h3"
+                  variant="h4"
                   fontWeight={700}
                   color="sc_blue.main"
                 >
                   {e.sum}
                 </Typography>
-                <Typography textAlign={"center"} variant="body1">
+                <Typography
+                  textAlign={"center"}
+                  variant="body2"
+                  color={"sc_gray.dark"}
+                >
                   {e.desc}
                 </Typography>
               </Stack>

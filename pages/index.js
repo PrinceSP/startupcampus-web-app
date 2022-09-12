@@ -7,6 +7,9 @@ import Section3 from "../components/section/Section3";
 import Section4 from "../components/section/Section4";
 import Section5 from "../components/section/Section5";
 import Section6 from "../components/section/Section6";
+import Section7 from "../components/section/Section7";
+import Section8 from "../components/section/Section8";
+import Section9 from "../components/section/Section9";
 
 export default function Home() {
   return (
@@ -21,6 +24,9 @@ export default function Home() {
       <Section4 />
       <Section5 />
       <Section6 />
+      <Section7 />
+      <Section8 />
+      <Section9 />
     </Fragment>
   );
 }

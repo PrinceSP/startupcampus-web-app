@@ -4,7 +4,7 @@ import React from "react";
 
 function Section2() {
   return (
-    <Grid container my={6} pt={4} spacing={6}>
+    <Grid container my={6} py={6} spacing={6}>
       <Grid item xs={12} md={12}>
         <Typography variant="h5" fontWeight={700} textAlign="center">
           Alumni Startup Campus telah bekerja di:

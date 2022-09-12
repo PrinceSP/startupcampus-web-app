@@ -39,13 +39,13 @@ function Section3() {
   return (
     <Grid container my={6} spacing={2}>
       <Grid item xs={12}>
-        <Typography variant="h3" fontWeight={700}>
+        <Typography variant="h4" fontWeight={700}>
           <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi{" "}
           <span ref={el} />
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body1">
+        <Typography variant="body2" color={"sc_gray.dark"}>
           Pilih program yang sesuai dengan minatmu. Mulai tingkatkan skill-mu
           sebagai langkah awal <br /> berkarir di dunia digital.
         </Typography>

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React from "react";
 
-function HighlightText({ children, width = "-5%"}) {
+function HighlightText({ children, width = "-5%", variant }) {
   return (
     <Typography
       display="inline"
@@ -20,7 +20,7 @@ function HighlightText({ children, width = "-5%"}) {
           backgroundColor: "rgba(0, 86, 210, 0.15)",
         },
       }}
-      variant="h3"
+      variant={variant ?? "h4"}
     >
       {children}
     </Typography>

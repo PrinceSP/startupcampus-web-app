@@ -7,9 +7,9 @@ import MyButton from "../MyButton";
 
 export default function Section6() {
   return (
-    <Grid container my={4} spacing={4} justifyContent="center">
+    <Grid container my={8} spacing={4} justifyContent="center">
       <Grid item>
-        <Typography variant="h3" fontWeight={700}>
+        <Typography variant="h4" fontWeight={700}>
           Cerita <HighlightText width="-2%">Sukses</HighlightText> Alumni
           Startup Campus
         </Typography>
@@ -41,10 +41,12 @@ export default function Section6() {
                 <Typography variant="h6" fontWeight={600}>
                   {item.name}
                 </Typography>
-                <Typography variant="subtitle1" color="sc_gray.main">
+                <Typography variant="subtitle1" color="sc_gray.dark">
                   {item.role}
                 </Typography>
-                <Typography variant="body1">{item.story}</Typography>
+                <Typography variant="body2" color="sc_gray.dark">
+                  {item.story}
+                </Typography>
               </Stack>
             </Box>
           </Grid>

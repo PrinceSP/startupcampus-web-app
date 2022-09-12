@@ -17,7 +17,8 @@ function Section1() {
       <Grid item xs={12} md={6} pt={4}>
         <Stack spacing={2} alignItems="start">
           <Typography variant="h3" fontWeight={800}>
-            <HighlightText>Ambil</HighlightText> Langkah Perubahanmu
+            <HighlightText variant="h3">Ambil</HighlightText> Langkah
+            Perubahanmu
           </Typography>
           <Typography variant="body1" lineHeight={2}>
             Melalui bootcamp yang intensif, Startup Campus mengajarkan
