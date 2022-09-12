@@ -41,9 +41,13 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <ThemeProvider theme={theme}>
-      <Header />
-      {pageLoaded ? <Component {...pageProps} /> : null}
-      <Footer />
+      {pageLoaded ? (
+        <>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </>
+      ) : null}
     </ThemeProvider>
   );
 }
