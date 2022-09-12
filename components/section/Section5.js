@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { benefit } from "../../content/benefit";
 import HighlightText from "../HighlightText";
+import WordBreak from "../WordBreak";
 
 function Section5() {
   return (
@@ -15,9 +16,9 @@ function Section5() {
       <Grid item xs={12}>
         <Typography variant="body2" color={"sc_gray.dark"}>
           Selama bootcamp ±5bulan intensif di Startup Campus, pelajari
-          keterampilan yang paling dibutuhkan <br /> saat ini untuk bekerja di
+          keterampilan yang paling dibutuhkan <WordBreak /> saat ini untuk bekerja di
           dunia digital dengan dukungan expert yang bepengalaman dan kurikulum{" "}
-          <br />
+          <WordBreak />
           yang up to date
         </Typography>
       </Grid>

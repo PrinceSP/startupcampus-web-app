@@ -2,6 +2,7 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
+import WordBreak from "../WordBreak";
 
 function Section8() {
   return (
@@ -23,7 +24,7 @@ function Section8() {
               color={"sc_gray.dark"}
             >
               Ambil langkah pertama dalam perjalananmu dengan mengikuti bootcamp{" "}
-              <br />
+              <WordBreak />
               intensif yang kami tawarkan!
             </Typography>
           </Box>

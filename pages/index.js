@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Head from "next/head";
 import { Fragment } from "react";
 import Section1 from "../components/section/Section1";
@@ -10,6 +10,7 @@ import Section6 from "../components/section/Section6";
 import Section7 from "../components/section/Section7";
 import Section8 from "../components/section/Section8";
 import Section9 from "../components/section/Section9";
+import Section10 from "../components/section/Section10";
 
 export default function Home() {
   return (
@@ -18,15 +19,18 @@ export default function Home() {
         <title>StartupCampus</title>
         <meta name="description" content="Official Website of StartupCampus" />
       </Head>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <Section7 />
-      <Section8 />
-      <Section9 />
+      <Container>
+        <Section1 />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+        <Section5 />
+        <Section6 />
+        <Section7 />
+        <Section8 />
+        <Section9 />
+      </Container>
+      <Section10 />
     </Fragment>
   );
 }

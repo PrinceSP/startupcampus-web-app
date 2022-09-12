@@ -1,6 +1,6 @@
 import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
-import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../styles/globals.css";
 
@@ -42,7 +42,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <Container>{pageLoaded ? <Component {...pageProps} /> : null}</Container>
+      {pageLoaded ? <Component {...pageProps} /> : null}
+      <Footer />
     </ThemeProvider>
   );
 }

@@ -6,13 +6,14 @@ import { kelas } from "../../content/kelas";
 import { testi2 } from "../../content/testi2";
 import Card from "../Card";
 import HighlightText from "../HighlightText";
+import WordBreak from "../WordBreak";
 
 function Section7() {
   return (
     <Grid container my={9} pt={4}>
       <Grid item xs={12}>
         <Typography variant="h4" fontWeight={700}>
-          Dan Inilah Tanggapan Mereka yang <br />{" "}
+          Dan Inilah Tanggapan Mereka yang <WordBreak />{" "}
           <HighlightText>Puas</HighlightText> dengan Startup Campus
         </Typography>
       </Grid>

@@ -1,6 +1,7 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import WordBreak from "../WordBreak";
 
 function Section2() {
   return (
@@ -54,7 +55,7 @@ function Section2() {
               fontWeight={400}
               textAlign="start"
             >
-              + dan masih <br /> banyak lagi
+              + dan masih <WordBreak /> banyak lagi
             </Typography>
           </Box>
         </Stack>
@@ -107,7 +108,7 @@ function Section2() {
               fontWeight={400}
               textAlign="start"
             >
-              + dan masih <br /> banyak lagi
+              + dan masih <WordBreak /> banyak lagi
             </Typography>
           </Box>
         </Stack>

@@ -6,6 +6,7 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Card from "../Card";
 import { kelas } from "../../content/kelas";
+import WordBreak from "../WordBreak";
 
 function Section3() {
   // Create reference to store the DOM element containing the animation
@@ -47,7 +48,7 @@ function Section3() {
       <Grid item xs={12}>
         <Typography variant="body2" color={"sc_gray.dark"}>
           Pilih program yang sesuai dengan minatmu. Mulai tingkatkan skill-mu
-          sebagai langkah awal <br /> berkarir di dunia digital.
+          sebagai langkah awal <WordBreak /> berkarir di dunia digital.
         </Typography>
       </Grid>
       <Grid item xs={12}>

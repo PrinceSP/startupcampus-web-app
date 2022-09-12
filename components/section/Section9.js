@@ -16,7 +16,7 @@ import MyButton from "../MyButton";
 
 function Section9() {
   return (
-    <Grid container spacing={3} my={6} pt={6}>
+    <Grid container spacing={3} my={6} py={6}>
       <Grid item xs={12}>
         <Typography variant="h4" textAlign="center" fontWeight={700}>
           <HighlightText width="-2%">Frequently</HighlightText> Asked Question’s
