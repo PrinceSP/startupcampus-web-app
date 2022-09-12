@@ -23,7 +23,13 @@ function Section9() {
         </Typography>
       </Grid>
       {qna.map((item) => (
-        <Grid item xs={12} display="flex" justifyContent={"center"}>
+        <Grid
+          key={item.q}
+          item
+          xs={12}
+          display="flex"
+          justifyContent={"center"}
+        >
           <Stack width={980}>
             <Accordion
               sx={{
