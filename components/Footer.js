@@ -59,7 +59,7 @@ function Footer() {
                   Tentang Kami
                 </Typography>
                 <Typography variant="body2" color="white">
-                  FAQ's
+                  FAQ&apos;s
                 </Typography>
               </Stack>
             </Stack>
