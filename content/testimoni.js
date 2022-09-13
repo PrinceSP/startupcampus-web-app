@@ -1,13 +1,13 @@
 export const testimoni = [
   {
-    img: "/images/Image1.png",
+    img: "/images/Image2.png",
     name: "Dwi Angelina Ratna",
     role: "Data Scientist - Amazon",
     story:
       "Disini aku belajar banyak dari praktisi langsung dan semua ilmunya itu kepake semua, bahkan sampai sekarang aku masih suka ngulik materi yang kemarin.",
   },
   {
-    img: "/images/Image2.png",
+    img: "/images/Image1.png",
     name: "Oktay Çağlar",
     role: "Founder - Udemy, Inc",
     story:
