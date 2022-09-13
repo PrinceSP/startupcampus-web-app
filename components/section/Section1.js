@@ -3,21 +3,15 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function Section1() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
-
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
       container
       component="section"
       direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
-      height={{ md: "100vh" }}
+      height={{ xs: "unset", md: "100vh" }}
       alignItems={{ md: "center" }}
     >
       <Grid item xs={12} md={6} pt={4} data-aos="fade-right">

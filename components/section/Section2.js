@@ -3,13 +3,8 @@ import Image from "next/image";
 import React from "react";
 import WordBreak from "../WordBreak";
 import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function Section2() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   return (
     <Grid container my={6} py={6} spacing={6}>
       <Grid item xs={12} md={12}>

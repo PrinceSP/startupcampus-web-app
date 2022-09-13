@@ -1,23 +1,23 @@
 export const testimoni = [
   {
-    img: "/images/Image2.png",
-    name: "Dwi Angelina Ratna",
-    role: "Data Scientist - Amazon",
+    img: "/images/News_Yusuf.png",
+    name: "Yusuf Al Rasyid Dahlan",
+    role: "Founder & CEO - LesQ",
     story:
-      "Disini aku belajar banyak dari praktisi langsung dan semua ilmunya itu kepake semua, bahkan sampai sekarang aku masih suka ngulik materi yang kemarin.",
+      "Al Rasyid berhasil merintis Startup LesQ untuk membantu mahasiswa agar berprestasi secara akademi",
   },
   {
-    img: "/images/Image1.png",
-    name: "Oktay Çağlar",
-    role: "Founder - Udemy, Inc",
+    img: "/images/News_Shannen.png",
+    name: "Gabrielle Shannen Leonard",
+    role: "Founder & CEO - Aksel",
     story:
-      "Value yang diberikan Startup Campus melebih ekspektasi saya, terutama dalam hal sistem pembelajaran dan pendampingan, serta koneksi pekerjaan.",
+      "Shannen berhasil menggaet investor luar negeri dari Hongkong setelah melakukan personal branding di Linkedin.",
   },
   {
-    img: "/images/Image3.png",
-    name: "Mirza Khaerunnisa",
-    role: "Software Engineer - Tradeshift",
+    img: "/images/News_Naufal.png",
+    name: "Naufal Fadlurahman Irdasyah",
+    role: "Founder & CFO - Spairum",
     story:
-      "Setelah belajar di Startup Campus, saya merasa jadi punya fundamental yang kuat, dan materi yang diajarkan sangat relevan di dunia kerja.",
+      "Naufal berhasil membangun Spairum (Stasiun Pengisian Air Minum) sebagai solusi pengurangan sampah plastik di lingkungan kampusnya.",
   },
 ];

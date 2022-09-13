@@ -26,7 +26,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
 export default function Header() {
-  function NavItem({ children }) {
+  function NavItem({ children, isDropDown = false }) {
     return (
       <Typography
         fontSize={14}
@@ -45,7 +45,7 @@ export default function Header() {
             backgroundColor: "sc_blue.main",
           },
           "&:hover::before": {
-            width: "100%",
+            width: isDropDown ? "0%" : "100%",
           },
         }}
       >
@@ -74,7 +74,12 @@ export default function Header() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        // m: 4,
+        // borderRadius: "100px",
+        // backgroundColor: "red",
+      }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -144,10 +149,10 @@ export default function Header() {
                 {/* LIST LINKS */}
 
                 <Dropdown>
-                  <NavItem>Program</NavItem>
+                  <NavItem isDropDown={true}>Program</NavItem>
                 </Dropdown>
                 <Dropdown>
-                  <NavItem>Tentang Kami</NavItem>
+                  <NavItem isDropDown={true}>Tentang Kami</NavItem>
                 </Dropdown>
                 <Link href={"/testimoni"} underline="none">
                   <NavItem>Testimoni</NavItem>
@@ -185,7 +190,9 @@ export default function Header() {
         </AppBar>
       </Box>
       <Drawer
-        sx={{ display: { xs: "block", sm: "block", md: "none" } }}
+        sx={{
+          display: { xs: "block", sm: "block", md: "none" },
+        }}
         anchor={"left"}
         open={state["left"]}
         onClose={toggleDrawer("left", false)}

@@ -7,8 +7,6 @@ import "@splidejs/react-splide/css";
 import Card from "../Card";
 import { kelas } from "../../content/kelas";
 import WordBreak from "../WordBreak";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function Section3() {
   // Create reference to store the DOM element containing the animation
@@ -16,7 +14,6 @@ function Section3() {
   // Create reference to store the Typed instance itself
   const typed = React.useRef(null);
   useEffect(() => {
-    AOS.init();
     const options = {
       strings: [
         "Founder",

@@ -4,13 +4,10 @@ import { testimoni } from "../../content/testimoni";
 import HighlightText from "../HighlightText";
 import Image from "next/image";
 import MyButton from "../MyButton";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 export default function Section6() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
+ 
   return (
     <Grid container my={8} spacing={4} justifyContent="center">
       <Grid item>

@@ -4,13 +4,8 @@ import React, { useEffect } from "react";
 import { benefit } from "../../content/benefit";
 import HighlightText from "../HighlightText";
 import WordBreak from "../WordBreak";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function Section5() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   return (
     <Grid container my={6} py={6} spacing={3} alignItems="center">
       <Grid item xs={12} data-aos="fade-right">

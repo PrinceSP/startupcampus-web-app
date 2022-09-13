@@ -13,13 +13,8 @@ import { qna } from "../../content/qna";
 import HighlightText from "../HighlightText";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MyButton from "../MyButton";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function Section9() {
-  useEffect(() => {
-    AOS.init();
-  }, []);
   return (
     <Grid container spacing={3} my={6} py={6}>
       <Grid item xs={12} data-aos="fade-down">

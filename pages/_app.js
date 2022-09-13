@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../styles/globals.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 let theme = createTheme({
   typography: {
@@ -38,6 +40,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     setPageLoaded(true);
+    AOS.init();
   }, []);
   return (
     <ThemeProvider theme={theme}>
