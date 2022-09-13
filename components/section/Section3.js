@@ -7,6 +7,8 @@ import "@splidejs/react-splide/css";
 import Card from "../Card";
 import { kelas } from "../../content/kelas";
 import WordBreak from "../WordBreak";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Section3() {
   // Create reference to store the DOM element containing the animation
@@ -14,6 +16,7 @@ function Section3() {
   // Create reference to store the Typed instance itself
   const typed = React.useRef(null);
   useEffect(() => {
+    AOS.init();
     const options = {
       strings: [
         "Founder",
@@ -39,19 +42,19 @@ function Section3() {
 
   return (
     <Grid container my={6} spacing={2}>
-      <Grid item xs={12}>
+      <Grid item xs={12} data-aos="fade-right">
         <Typography variant="h4" fontWeight={700}>
           <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi{" "}
           <span ref={el} />
         </Typography>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} data-aos="fade-right">
         <Typography variant="body2" color={"sc_gray.dark"}>
           Pilih program yang sesuai dengan minatmu. Mulai tingkatkan skill-mu
           sebagai langkah awal <WordBreak /> berkarir di dunia digital.
         </Typography>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} data-aos="fade-up">
         <Splide
           options={{
             perPage: 3,

@@ -1,13 +1,18 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
 import WordBreak from "../WordBreak";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Section8() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Grid container my={6}>
-      <Grid item xs={12}>
+      <Grid item xs={12} data-aos="fade-up">
         <Stack spacing={4} alignItems="center">
           <Box>
             <Typography

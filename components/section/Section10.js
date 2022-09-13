@@ -1,8 +1,13 @@
 import { Box, FormControl, Grid, Input, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import WordBreak from "../WordBreak";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Section10() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const handleSubscribe = (e) => {
     e.preventDefault();
   };

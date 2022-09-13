@@ -1,22 +1,27 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { testimoni } from "../../content/testimoni";
 import HighlightText from "../HighlightText";
 import Image from "next/image";
 import MyButton from "../MyButton";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Section6() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Grid container my={8} spacing={4} justifyContent="center">
       <Grid item>
-        <Typography variant="h4" fontWeight={700}>
+        <Typography variant="h4" fontWeight={700} data-aos="fade-down">
           Cerita <HighlightText width="-2%">Sukses</HighlightText> Alumni
           Startup Campus
         </Typography>
       </Grid>
       <Grid item container xs={12} spacing={3}>
         {testimoni.map((item) => (
-          <Grid item md={4} key={item.name}>
+          <Grid item md={4} key={item.name} data-aos="fade-up">
             <Box width="100%" borderRadius={"20px"} overflow="hidden">
               <Box
                 width="100%"
@@ -51,7 +56,12 @@ export default function Section6() {
             </Box>
           </Grid>
         ))}
-        <Grid item sx={{ display: "flex", justifyContent: "center" }} xs={12}>
+        <Grid
+          item
+          sx={{ display: "flex", justifyContent: "center" }}
+          xs={12}
+          data-aos="fade-down"
+        >
           <MyButton>
             <Typography fontWeight={700}>Baca Cerita Lainnya</Typography>
           </MyButton>

@@ -8,16 +8,21 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { qna } from "../../content/qna";
 import HighlightText from "../HighlightText";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MyButton from "../MyButton";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Section9() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Grid container spacing={3} my={6} py={6}>
-      <Grid item xs={12}>
+      <Grid item xs={12} data-aos="fade-down">
         <Typography variant="h4" textAlign="center" fontWeight={700}>
           <HighlightText width="-2%">Frequently</HighlightText> Asked Question’s
         </Typography>
@@ -29,6 +34,7 @@ function Section9() {
           xs={12}
           display="flex"
           justifyContent={"center"}
+          data-aos="fade-left"
         >
           <Stack width={980}>
             <Accordion

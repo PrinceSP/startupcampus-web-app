@@ -1,23 +1,28 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { kelas } from "../../content/kelas";
 import { testi2 } from "../../content/testi2";
 import Card from "../Card";
 import HighlightText from "../HighlightText";
 import WordBreak from "../WordBreak";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Section7() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Grid container my={9} pt={4}>
-      <Grid item xs={12}>
+      <Grid item xs={12} data-aos="fade-right">
         <Typography variant="h4" fontWeight={700}>
           Dan Inilah Tanggapan Mereka yang <WordBreak />{" "}
           <HighlightText>Puas</HighlightText> dengan Startup Campus
         </Typography>
       </Grid>
-      <Grid item xs={12} py={2}>
+      <Grid item xs={12} py={2} data-aos="fade-left">
         <Splide
           options={{
             perPage: 2,

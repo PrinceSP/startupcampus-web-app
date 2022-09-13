@@ -1,10 +1,16 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Section1() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
@@ -14,8 +20,8 @@ function Section1() {
       height={{ md: "100vh" }}
       alignItems={{ md: "center" }}
     >
-      <Grid item xs={12} md={6} pt={4}>
-        <Stack spacing={2} alignItems="start">
+      <Grid item xs={12} md={6} pt={4} data-aos="fade-right">
+        <Stack spacing={2} alignItems="start" className="hero-text">
           <Typography variant="h3" fontWeight={800}>
             <HighlightText variant="h3">Ambil</HighlightText> Langkah
             Perubahanmu
@@ -36,6 +42,7 @@ function Section1() {
           position: "relative",
           transform: { xs: "scale(1)", md: "scale(1.2)" },
         }}
+        data-aos="zoom-in-up"
       >
         <Box
           sx={{

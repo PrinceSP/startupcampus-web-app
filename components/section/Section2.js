@@ -2,12 +2,23 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import WordBreak from "../WordBreak";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Section2() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Grid container my={6} py={6} spacing={6}>
       <Grid item xs={12} md={12}>
-        <Typography variant="h5" fontWeight={700} textAlign="center">
+        <Typography
+          variant="h5"
+          fontWeight={700}
+          textAlign="center"
+          data-aos="fade-up"
+        >
           Alumni Startup Campus telah bekerja di:
         </Typography>
       </Grid>
@@ -24,6 +35,7 @@ function Section2() {
               width={156}
               height={50}
               src={"/images/Shopee-logo-Gray.png"}
+              data-aos="flip-left"
             />
           </Box>
 
@@ -32,6 +44,7 @@ function Section2() {
               width={63}
               height={55}
               src={"/images/Zero One Group-logo-Gray.png"}
+              data-aos="flip-left"
             />
           </Box>
           <Box>
@@ -39,6 +52,7 @@ function Section2() {
               width={139}
               height={50}
               src={"/images/Kimia Farma-logo-Gray.png"}
+              data-aos="flip-left"
             />
           </Box>
           <Box>
@@ -46,6 +60,7 @@ function Section2() {
               width={279}
               height={60}
               src={"/images/Philip Morris International_logo-Gray.png"}
+              data-aos="flip-left"
             />
           </Box>
           <Box>
@@ -54,6 +69,7 @@ function Section2() {
               sx={{ color: "#69686B", mt: 0 }}
               fontWeight={400}
               textAlign="start"
+              data-aos="fade-right"
             >
               + dan masih <WordBreak /> banyak lagi
             </Typography>
