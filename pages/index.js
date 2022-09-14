@@ -11,6 +11,7 @@ import Section7 from "../components/section/Section7";
 import Section8 from "../components/section/Section8";
 import Section9 from "../components/section/Section9";
 import Section10 from "../components/section/Section10";
+import BubbleChat from "../components/BubbleChat";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <title>StartupCampus</title>
         <meta name="description" content="Official Website of StartupCampus" />
       </Head>
+      <BubbleChat />
       <Container>
         <Section1 />
         <Section2 />

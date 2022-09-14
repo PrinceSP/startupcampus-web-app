@@ -17,13 +17,20 @@ function Section1() {
       <Grid item xs={12} md={6} pt={4} data-aos="fade-right">
         <Stack spacing={2} alignItems="start" className="hero-text">
           <Typography variant="h3" fontWeight={800}>
-            <HighlightText variant="h3">Ambil</HighlightText> Langkah
-            Perubahanmu
+            Ambil{" "}
+            <Box component="span" sx={{ color: "sc_blue.main" }}>
+              Langkah Perubahan!
+            </Box>
           </Typography>
           <Typography variant="body1" lineHeight={2}>
-            Melalui bootcamp yang intensif, Startup Campus mengajarkan
-            keterampilan dan pola pikir kewirausahaan yang kamu butuhkan untuk
-            berkembang di dunia digital.
+            Raih karier impianmu dengan belajar bersama Startup Campus. Siapapun
+            kamu, semua bisa{" "}
+            <Box
+              component="span"
+              sx={{ color: "sc_blue.main", fontWeight: 700 }}
+            >
+              #JadiMahirDigital
+            </Box>
           </Typography>
           <MyButton>Pilih Programmu</MyButton>
         </Stack>

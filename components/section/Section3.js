@@ -42,6 +42,7 @@ function Section3() {
       <Grid item xs={12} data-aos="fade-right">
         <Typography variant="h4" fontWeight={700}>
           <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi{" "}
+          <Typography display={{ xs: "block", md: "none" }} />
           <span ref={el} />
         </Typography>
       </Grid>
