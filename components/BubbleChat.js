@@ -10,7 +10,7 @@ function BubbleChat() {
         zIndex: 99,
         bottom: 0,
         right: 0,
-        m: 7,
+        m: { xs: 2, md: 5 },
         backgroundColor: "#4ECB5C",
         borderRadius: "50%",
         p: 2,
