@@ -6,22 +6,18 @@ import HighlightText from "../HighlightText";
 import WordBreak from "../WordBreak";
 
 function Section4() {
-
   return (
     <Grid container my={6} py={4} spacing={3}>
       <Grid item xs={12} data-aos="fade-right">
         <Typography variant="h4" fontWeight={700}>
-          <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi Ahli{" "}
-          <WordBreak />
-          Tanpa Perlu Keluar Rumah
+          <HighlightText width="-2%">Kamu Bisa</HighlightText> Menjadi Ahli Dari
+          Mana Saja
         </Typography>
       </Grid>
       <Grid item xs={12} data-aos="fade-right">
         <Typography variant="body2" color={"sc_gray.dark"}>
-          Startup Campus, sebuah bootcamp online dengan kurikulum yang up to
-          date dan <WordBreak /> terlengkap berbasis industri dengan
-          berorientasi praktik dan ditujukan untuk perubahan karier di masa
-          depan
+          Startup Campus, sebuah bootcamp online dengan kurikulum terkini dan
+          terlengkap berbasis industri
         </Typography>
       </Grid>
       <Grid item mt={5} container xs={12} spacing={6}>

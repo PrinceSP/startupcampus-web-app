@@ -154,7 +154,7 @@ export default function Header() {
                 <Dropdown>
                   <NavItem isDropDown={true}>Tentang Kami</NavItem>
                 </Dropdown>
-                <Link href={"/testimoni"} underline="none">
+                <Link href={"#testimoni"} underline="none">
                   <NavItem>Testimoni</NavItem>
                 </Link>
                 <Link href={"/blog"} underline="none">

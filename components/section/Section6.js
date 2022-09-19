@@ -5,11 +5,9 @@ import HighlightText from "../HighlightText";
 import Image from "next/image";
 import MyButton from "../MyButton";
 
-
 export default function Section6() {
- 
   return (
-    <Grid container my={8} spacing={4} justifyContent="center">
+    <Grid container my={8} spacing={4} justifyContent="center" id={"testimoni"}>
       <Grid item>
         <Typography variant="h4" fontWeight={700} data-aos="fade-down">
           Cerita <HighlightText width="-2%">Sukses</HighlightText> Alumni

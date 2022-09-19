@@ -16,23 +16,16 @@ function Section1() {
     >
       <Grid item xs={12} md={6} pt={4} data-aos="fade-right">
         <Stack spacing={2} alignItems="start" className="hero-text">
-          <Typography variant="h3" fontWeight={800}>
-            Ambil{" "}
-            <Box component="span" sx={{ color: "sc_blue.main" }}>
-              Langkah Perubahan!
-            </Box>
+          <Typography variant="h4" fontWeight={800}>
+            Siapapun Kamu, Semua Bisa{" "}
+            <HighlightText variant={"h4"}>#JadiMahirDigital</HighlightText>
           </Typography>
           <Typography variant="body1" lineHeight={2}>
-            Raih karier impianmu dengan belajar bersama Startup Campus. Siapapun
-            kamu, semua bisa{" "}
-            <Box
-              component="span"
-              sx={{ color: "sc_blue.main", fontWeight: 700 }}
-            >
-              #JadiMahirDigital
-            </Box>
+            Raih karier impianmu sebagai founder, UI/UX designer, data
+            scientist, backend engineer, atau AI specialist bersama Startup
+            Campus!
           </Typography>
-          <MyButton>Pilih Programmu</MyButton>
+          <MyButton href={"#program"}>Pilih Programmu</MyButton>
         </Stack>
       </Grid>
       <Grid
