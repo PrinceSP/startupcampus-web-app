@@ -20,6 +20,12 @@ import React from "react";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+const helper = [
+  "Hanya memerlukan 5 menit untuk mengisi formulir",
+  "Akan dihubungi oleh tim",
+  "Pembayaran dapat dilakukan H+2 setelah mengisi formulir pendaftaran",
+];
 
 function Daftar() {
   return (
@@ -138,7 +144,7 @@ function Daftar() {
                     <Typography fontWeight={700} gutterBottom>
                       Kelas Terdekat *
                     </Typography>
-                    <Grid container gap={1}>
+                    <Grid container gap={3}>
                       {Array(3)
                         .fill(null)
                         .map((i) => (
@@ -226,7 +232,34 @@ function Daftar() {
                   <MyButton>Mulai Pendaftaran</MyButton>
                 </Stack>
               </Grid>
-              <Grid item md={4} sx={{ background: "#0056D2" }}></Grid>
+              <Grid item md={4} sx={{ background: "#0056D2" }} p={4}>
+                <Stack spacing={2}>
+                  {helper.map((value, i) => (
+                    <Stack direction="row" key={i} spacing={1}>
+                      <Box
+                        sx={{
+                          backgroundColor: "white",
+                          height: "20px",
+                          width: "20px",
+                          borderRadius: "100%",
+                          alignSelf: "start",
+                          position: "relative",
+                        }}
+                      >
+                        <CheckCircleIcon
+                          sx={{
+                            color: "#003B8F",
+                            position: "relative",
+                            top: 0,
+                            left: 0,
+                          }}
+                        />
+                      </Box>
+                      <Typography color={"white"}>{value}</Typography>
+                    </Stack>
+                  ))}
+                </Stack>
+              </Grid>
             </Grid>
           </Grid>
         </Container>

@@ -20,7 +20,7 @@ function Footer() {
     >
       <Container>
         <Divider color="white" />
-        <Grid item my={6} container xs={12} spacing={6}>
+        <Grid item my={2} container xs={12} spacing={6}>
           <Grid item xs={6} md={3}>
             <Stack spacing={4} my={4}>
               <Box>
