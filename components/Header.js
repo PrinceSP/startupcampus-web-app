@@ -171,7 +171,9 @@ export default function Header() {
                   display: { md: "flex", sm: "none", xs: "none" },
                 }}
               >
-                <MyButton>Daftar sekarang</MyButton>
+                <Link href={"/daftar"} underline="none">
+                  <MyButton>Daftar sekarang</MyButton>
+                </Link>
               </Stack>
 
               {/* Only MOoile  */}

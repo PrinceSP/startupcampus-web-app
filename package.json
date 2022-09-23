@@ -16,6 +16,7 @@
     "@splidejs/react-splide": "^0.7.10",
     "aos": "^3.0.0-beta.6",
     "contentful": "^9.2.4",
+    "formik": "^2.2.9",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
