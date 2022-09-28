@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Link, Stack, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
@@ -28,7 +28,9 @@ function Section8() {
               intensif yang kami tawarkan!
             </Typography>
           </Box>
-          <MyButton>Daftar Sekarang</MyButton>
+          <Link href={"/daftar"} underline="none">
+            <MyButton>Daftar Sekarang</MyButton>
+          </Link>
         </Stack>
       </Grid>
     </Grid>
