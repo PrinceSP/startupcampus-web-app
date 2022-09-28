@@ -21,6 +21,7 @@ import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import InputText from "../components/InputText";
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
@@ -77,26 +78,7 @@ function Daftar() {
                     <Typography fontWeight={700} gutterBottom>
                       Email *
                     </Typography>
-                    <Input
-                      type="email"
-                      aria-describedby="my-helper-email"
-                      placeholder="alifnabila@gmail.com"
-                      name="email"
-                      sx={{
-                        flexGrow: 2,
-                        border: "2px solid #BDBDBD",
-                        backgroundColor: "white",
-                        py: 1,
-                        px: 2,
-                        borderRadius: "5px",
-                        "&::before": {
-                          border: "unset !important",
-                        },
-                        "&::after": {
-                          border: "unset !important",
-                        },
-                      }}
-                    />
+                    <InputText width={"100px"} />
                   </FormControl>
                   <FormControl>
                     <Typography fontWeight={700} gutterBottom>

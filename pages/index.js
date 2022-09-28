@@ -1,35 +1,20 @@
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
 import { Fragment, useEffect, useState } from "react";
-import Section1 from "../components/section/Section1";
-import Section2 from "../components/section/Section2";
-import Section3 from "../components/section/Section3";
-import Section4 from "../components/section/Section4";
-import Section5 from "../components/section/Section5";
-import Section6 from "../components/section/Section6";
-import Section7 from "../components/section/Section7";
-import Section8 from "../components/section/Section8";
-import Section9 from "../components/section/Section9";
-import Section10 from "../components/section/Section10";
+import Section1 from "../components/homeSection/Section1";
+import Section2 from "../components/homeSection/Section2";
+import Section3 from "../components/homeSection/Section3";
+import Section4 from "../components/homeSection/Section4";
+import Section5 from "../components/homeSection/Section5";
+import Section6 from "../components/homeSection/Section6";
+import Section7 from "../components/homeSection/Section7";
+import Section8 from "../components/homeSection/Section8";
+import Section9 from "../components/homeSection/Section9";
+import Section10 from "../components/homeSection/Section10";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
 
-export default function Home() {
-  // const [content, setcontent] = useState(null);
-  // const client = createClient({
-  //   space: "s44tcu9ptufv",
-  //   accessToken: "-6ovkKHLKM0-lwOpnZuQmyt4wZNmQAnsOy7TX_BgPJw",
-  // });
-
-  // useEffect(() => {
-  //   const fetch = async () => {
-  //     const res = await client.getEntries({ content_type: "faq" });
-  //     console.log(res.items[0].fields);
-  //     setcontent(res.items);
-  //   };
-
-  //   fetch();
-  // }, []);
+export default function Home({ logo }) {
   return (
     <Fragment>
       <Head>
@@ -38,14 +23,8 @@ export default function Home() {
       </Head>
       <BubbleChat />
       <Container>
-        {/* {content?.map((item, id) => (
-          <Box key={id}>
-            <Typography>{item.fields.question ?? "Loading..."}</Typography>
-            <Typography>{item.fields.answer ?? "Loading..."}</Typography>
-          </Box>
-        ))} */}
         <Section1 />
-        <Section2 />
+        <Section2 logo={logo} />
         <Section3 />
         <Section4 />
         <Section5 />
@@ -57,4 +36,19 @@ export default function Home() {
       <Section10 />
     </Fragment>
   );
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  const res = await client.getEntries({ content_type: "logoCompany" });
+
+  return {
+    props: {
+      logo: res.items,
+    },
+  };
 }
