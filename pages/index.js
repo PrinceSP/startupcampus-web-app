@@ -14,7 +14,8 @@ import Section10 from "../components/homeSection/Section10";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
 
-export default function Home({ logo }) {
+export default function Home({ logo, testimoni }) {
+  console.log(testimoni);
   return (
     <Fragment>
       <Head>
@@ -29,7 +30,7 @@ export default function Home({ logo }) {
         <Section4 />
         <Section5 />
         <Section6 />
-        <Section7 />
+        <Section7 testimoni={testimoni} />
         <Section8 />
         <Section9 />
       </Container>
@@ -44,11 +45,17 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
-  const res = await client.getEntries({ content_type: "logoCompany" });
+  const { items: logo } = await client.getEntries({
+    content_type: "logoCompany",
+  });
+  const { items: testimoni } = await client.getEntries({
+    content_type: "testimoni",
+  });
 
   return {
     props: {
-      logo: res.items,
+      logo,
+      testimoni,
     },
   };
 }

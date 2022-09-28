@@ -8,7 +8,7 @@ import Card from "../Card";
 import HighlightText from "../HighlightText";
 import WordBreak from "../WordBreak";
 
-function Section7() {
+function Section7({ testimoni }) {
   return (
     <Grid container my={9} pt={4}>
       <Grid item xs={12} data-aos="fade-right">
@@ -35,7 +35,7 @@ function Section7() {
           }}
           aria-label="Starup-Class"
         >
-          {testi2.map((item) => (
+          {testimoni?.map((item) => (
             <SplideSlide key={item.name}>
               <Stack
                 my={4}
@@ -49,18 +49,20 @@ function Section7() {
                 }}
               >
                 <Typography variant="h6" color="sc_blue.main" fontWeight={700}>
-                  {item.title}
+                  {item.fields.title}
                 </Typography>
                 <Typography variant="body1" color="sc_gray.dark">
-                  {item.story}
+                  {item.fields.description}
                 </Typography>
                 <Stack direction="row" spacing={2} alignItems="center">
                   <Box
                     sx={{
                       position: "relative",
                       backgroundColor: "rgba(0, 86, 210, 0.5)",
-                      borderRadius: "100%",
+                      // borderRadius: "100%",
                       overflow: "hidden",
+                      width: "fit-content",
+                      height: "fit-content",
                     }}
                   >
                     <Image src={item.img} width={67} height={67} />
@@ -71,10 +73,10 @@ function Section7() {
                       color="sc_blue.main"
                       fontWeight={700}
                     >
-                      {item.name}
+                      {item.fields.namaTestimoni}
                     </Typography>
                     <Typography variant="body2" color="sc_gray.dark">
-                      {item.role}
+                      {item.fields.pekerjaan}
                     </Typography>
                   </Stack>
                 </Stack>

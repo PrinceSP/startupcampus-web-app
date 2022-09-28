@@ -29,6 +29,7 @@ function Section2({ logo }) {
               md={3}
               display="flex"
               justifyContent="center"
+              data-aos="fade-up"
             >
               <Box sx={{ widht: "100px", height: "100px" }}>
                 <Image
@@ -38,11 +39,13 @@ function Section2({ logo }) {
                   height={
                     value.fields.logo.fields.file.details.image.height ?? 2
                   }
+                  placeholder="blur"
+                  blurDataURL={`https:${value.fields.logo.fields.file.url}`}
                 />
               </Box>
             </Grid>
           ))}
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={3} data-aos="fade-up">
           <Typography variant="body2" color={"sc_gray.dark"} textAlign="center">
             dan banyak lagi
           </Typography>
