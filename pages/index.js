@@ -57,5 +57,6 @@ export async function getStaticProps() {
       logo,
       testimoni,
     },
+    revalidate: 1,
   };
 }

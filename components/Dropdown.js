@@ -2,6 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import { ExpandLessRounded, ExpandMoreRounded } from "@mui/icons-material";
 import { Box, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 
 const NavItem = ({ children }) => (
   <Typography
