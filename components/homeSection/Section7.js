@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Grid, Stack, Typography } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Image from "next/image";
 import React, { useEffect } from "react";
@@ -35,8 +35,8 @@ function Section7({ testimoni }) {
           }}
           aria-label="Starup-Class"
         >
-          {testimoni?.map((item) => (
-            <SplideSlide key={item.name}>
+          {testimoni?.map((item, id) => (
+            <SplideSlide key={id}>
               <Stack
                 my={4}
                 mx={1}
@@ -55,18 +55,10 @@ function Section7({ testimoni }) {
                   {item.fields.description}
                 </Typography>
                 <Stack direction="row" spacing={2} alignItems="center">
-                  <Box
-                    sx={{
-                      position: "relative",
-                      backgroundColor: "rgba(0, 86, 210, 0.5)",
-                      // borderRadius: "100%",
-                      overflow: "hidden",
-                      width: "fit-content",
-                      height: "fit-content",
-                    }}
-                  >
-                    <Image src={item.img} width={67} height={67} />
-                  </Box>
+                  <Avatar
+                    alt={item.fields.namaTestimoni}
+                    src={`https:${item.fields.logo?.fields.file.url}`}
+                  />
                   <Stack>
                     <Typography
                       variant="h6"

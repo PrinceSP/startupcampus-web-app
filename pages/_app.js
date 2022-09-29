@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import "../styles/globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Layout from "../components/Layout";
 
 let theme = createTheme({
   typography: {
@@ -45,11 +46,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       {pageLoaded ? (
-        <>
-          <Header />
+        <Layout>
           <Component {...pageProps} />
-          <Footer />
-        </>
+        </Layout>
       ) : null}
     </ThemeProvider>
   );

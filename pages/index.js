@@ -15,14 +15,15 @@ import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
 
 export default function Home({ logo, testimoni }) {
-  console.log(testimoni);
+  useEffect(() => {
+    console.log(testimoni);
+  }, [testimoni]);
   return (
     <Fragment>
       <Head>
         <title>StartupCampus</title>
         <meta name="description" content="Official Website of StartupCampus" />
       </Head>
-      <BubbleChat />
       <Container>
         <Section1 />
         <Section2 logo={logo} />

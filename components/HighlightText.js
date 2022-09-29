@@ -1,12 +1,12 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 function HighlightText({ children, width = "-5%", variant }) {
   return (
-    <Typography
-      display="inline"
-      fontWeight={800}
+    <Box
+      component={"span"}
       sx={{
+        fontWeight: 800,
         position: "relative",
         color: "sc_blue.main",
         "&::before": {
@@ -20,10 +20,9 @@ function HighlightText({ children, width = "-5%", variant }) {
           backgroundColor: "rgba(0, 86, 210, 0.15)",
         },
       }}
-      variant={variant ?? "h4"}
     >
       {children}
-    </Typography>
+    </Box>
   );
 }
 

@@ -18,7 +18,9 @@ function Section1() {
         <Stack spacing={2} alignItems="start" className="hero-text">
           <Typography variant="h4" fontWeight={800}>
             Siapapun Kamu, Semua Bisa{" "}
-            <HighlightText variant={"h4"}>#JadiMahirDigital</HighlightText>
+            <Box component="span" sx={{ color: "sc_blue.main" }}>
+              #JadiMahirDigital
+            </Box>
           </Typography>
           <Typography variant="body1" lineHeight={2}>
             Raih karier impianmu sebagai founder, UI/UX designer, data
@@ -76,6 +78,7 @@ function Section1() {
             height={527}
             placeholder="blur"
             blurDataURL="/images/people.png"
+            priority
           />
         </Box>
       </Grid>
