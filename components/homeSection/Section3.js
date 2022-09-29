@@ -53,7 +53,14 @@ function Section3({ course }) {
           sebagai langkah awal <WordBreak /> berkarir di dunia digital.
         </Typography>
       </Grid>
-      <Grid item xs={3} md={4} display="flex" justifyContent={"flex-end"}>
+      <Grid
+        item
+        xs={3}
+        md={4}
+        display="flex"
+        justifyContent={"flex-end"}
+        data-aos="fade-left"
+      >
         <MyButton
           padding={"15px 19px"}
           color={"sc_sky"}
