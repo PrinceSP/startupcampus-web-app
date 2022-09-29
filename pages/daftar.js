@@ -13,26 +13,54 @@ import {
   Radio,
   RadioGroup,
   Stack,
+  TextField,
   Typography,
 } from "@mui/material";
 import Head from "next/head";
-import React from "react";
+import React, { Fragment } from "react";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import InputText from "../components/InputText";
+import { createClient } from "contentful";
+import { useForm } from "react-hook-form";
+import { kelas } from "../content/kelas";
+
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
   "Pembayaran dapat dilakukan H+2 setelah mengisi formulir pendaftaran",
 ];
 
-function Daftar() {
+const styleInput = {
+  flexGrow: 2,
+  width: "100%",
+  border: "2px solid #BDBDBD",
+  backgroundColor: "white",
+  py: 1,
+  px: 2,
+  borderRadius: "5px",
+  "&::before": {
+    border: "unset !important",
+  },
+  "&::after": {
+    border: "unset !important",
+  },
+};
+
+function Daftar({ paket }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(JSON.stringify(data));
+  // console.log(errors);
   return (
-    <>
+    <Fragment>
       <Head>
-        <title>Daftar</title>
+        <title>Daftar | Startup Campus</title>
       </Head>
       <Box
         sx={{
@@ -41,13 +69,7 @@ function Daftar() {
         }}
       >
         <Container>
-          <Grid
-            // minHeight={"100vh"}
-            mt={15}
-            py={10}
-            justifyContent="center"
-            container
-          >
+          <Grid mt={15} py={10} justifyContent="center" container>
             <Grid item xs={8} mb={6}>
               <MultiStep />
             </Grid>
@@ -64,7 +86,12 @@ function Daftar() {
               }}
             >
               <Grid item md={8} py={8} px={4}>
-                <Stack spacing={3} component="form" alignItems={"start"}>
+                <Stack
+                  spacing={3}
+                  component="form"
+                  alignItems={"start"}
+                  onSubmit={handleSubmit(onSubmit)}
+                >
                   <Typography variant="h5" fontWeight={700}>
                     Daftarkan dirimu sekarang, mulailah dengan <WordBreak />
                     beberapa langkah mudah.
@@ -74,134 +101,168 @@ function Daftar() {
                     untuk menjadwalkan wawancara ±30 menit terkait dengan
                     pendaftaranmu.
                   </Typography>
+
+                  {/* EMAIL INPUT */}
+                  <Stack
+                    component="label"
+                    spacing={1}
+                    direction="column"
+                    sx={{ width: "100%" }}
+                  >
+                    <Typography fontWeight={700}>Email *</Typography>
+                    <Input
+                      {...register("email", {
+                        required: "Isi email kamu ya",
+                        pattern: {
+                          value: /^\S+@\S+$/i,
+                          message: "Email tidak valid",
+                        },
+                      })}
+                      placeholder={"alifnabila@gmail.com"}
+                      sx={styleInput}
+                    />
+                    {errors.email && (
+                      <Typography variant="subtitle2" color={"red"}>
+                        {errors.email?.message}
+                      </Typography>
+                    )}
+                  </Stack>
+
+                  {/* TRACK INPUT */}
                   <FormControl>
-                    <Typography fontWeight={700} gutterBottom>
-                      Email *
-                    </Typography>
-                    <InputText width={"100px"} />
-                  </FormControl>
-                  <FormControl>
-                    <Typography fontWeight={700} gutterBottom>
+                    <Typography fontWeight={700}>
                       Apa yang ingin kamu pelajari? *
                     </Typography>
-                    <FormControl>
-                      {/* <FormLabel id="demo-radio-buttons-group-label">
-                        Gender
-                      </FormLabel> */}
-                      <RadioGroup
-                        aria-labelledby="demo-radio-buttons-group-label"
-                        defaultValue="the founder"
-                        name="radio-buttons-group"
-                      >
+                    <RadioGroup defaultValue="The Founder" name="track">
+                      {kelas.map((val, idx) => (
                         <FormControlLabel
-                          value="the founder"
+                          key={idx}
+                          value={val.title}
                           control={<Radio />}
-                          label="The Founder"
+                          label={val.title}
+                          {...register("track", {
+                            required: "Pilih program apa yang ingin kamu ikuti",
+                          })}
                         />
-                        <FormControlLabel
-                          value="ui/ux design"
-                          control={<Radio />}
-                          label="UI/UX Design"
-                        />
-                        <FormControlLabel
-                          value="data science"
-                          control={<Radio />}
-                          label="Data Science"
-                        />
-                        <FormControlLabel
-                          value="artificial intelligence"
-                          control={<Radio />}
-                          label="Artificial Intelligence"
-                        />
-                        <FormControlLabel
-                          value="backend engineer"
-                          control={<Radio />}
-                          label="Backend Engineer"
-                        />
-                      </RadioGroup>
-                    </FormControl>
+                      ))}
+                    </RadioGroup>
+                    {errors.track && (
+                      <Typography variant="subtitle2" color={"red"}>
+                        {errors.track?.message}
+                      </Typography>
+                    )}
                   </FormControl>
 
-                  <FormControl>
+                  {/* PAKET KELAS INPUT */}
+                  <FormGroup width="100%">
                     <Typography fontWeight={700} gutterBottom>
                       Kelas Terdekat *
                     </Typography>
-                    <Grid container gap={3}>
-                      {Array(3)
-                        .fill(null)
-                        .map((i) => (
+                    <Grid container spacing={1}>
+                      {paket
+                        ?.slice(0)
+                        .reverse()
+                        .map((val, i) => (
                           <Grid
-                            item
                             key={i}
-                            p={3}
+                            item
                             xs={12}
-                            md={5}
-                            borderRadius={"10px"}
-                            border={"2px solid #bdbd"}
+                            md={6}
+                            sx={{ cursor: "pointer" }}
                           >
                             <Stack
-                              direction="row"
-                              alignItems={"center"}
-                              justifyContent={"space-between"}
+                              component="label"
+                              width="100%"
+                              p={3}
+                              xs={12}
+                              md={5}
+                              position="relative"
+                              borderRadius={"10px"}
+                              border={"2px solid #bdbd"}
                             >
-                              <Typography fontWeight={700}>
-                                Studi Independen
-                              </Typography>
-                              <Typography
-                                fontWeight={700}
-                                color="white"
-                                p={1}
-                                borderRadius={"10px"}
-                                backgroundColor={"#0056D2"}
+                              <Input
+                                {...register("paket", {
+                                  required: "Pilih kelas mana ya",
+                                })}
+                                type="radio"
+                                value={val.fields.namaPaket}
+                                sx={{ position: "absolute", opacity: 0 }}
+                              />
+                              <Stack
+                                direction="row"
+                                alignItems={"center"}
+                                justifyContent={"space-between"}
                               >
-                                Online
-                              </Typography>
-                            </Stack>
-                            <Stack spacing={1} alignItems="start">
-                              <Typography
-                                variant="body2"
-                                color={"sc_gray.dark"}
-                              >
-                                Bahasa Indonesia
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                color={"sc_gray.dark"}
-                              >
-                                Tanggal
-                              </Typography>
-                              <Stack direction="row" spacing={1}>
-                                <Typography
-                                  variant="body2"
-                                  color={"sc_gray.dark"}
-                                  sx={{
-                                    textDecoration: "line-through",
-                                  }}
-                                >
-                                  Rp7.998.050
+                                <Typography fontWeight={700}>
+                                  {val.fields.namaPaket}
                                 </Typography>
                                 <Typography
-                                  variant="body2"
-                                  color={"sc_gray.dark"}
+                                  fontWeight={700}
+                                  color="white"
+                                  p={1}
+                                  borderRadius={"10px"}
+                                  backgroundColor={"#0056D2"}
                                 >
-                                  Rp0
+                                  {val.fields.isOnline}
                                 </Typography>
                               </Stack>
-                              <Typography
-                                variant="body2"
-                                color={"sc_blue.main"}
-                              >
-                                (GMT+07:00) Jakarta
-                              </Typography>
+
+                              <Stack spacing={1} alignItems="start">
+                                <Typography
+                                  variant="body2"
+                                  color={"sc_gray.dark"}
+                                >
+                                  {val.fields.bahasa}
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  color={"sc_gray.dark"}
+                                >
+                                  {val.fields.tanggal}
+                                </Typography>
+                                <Stack direction="row" spacing={1}>
+                                  <Typography
+                                    variant="body2"
+                                    color={"sc_gray.dark"}
+                                    sx={{
+                                      textDecoration: "line-through",
+                                    }}
+                                  >
+                                    {val.fields.hargaNormal}
+                                  </Typography>
+                                  <Typography
+                                    variant="body2"
+                                    color={"sc_gray.dark"}
+                                  >
+                                    {val.fields.hargaDiskon}
+                                  </Typography>
+                                </Stack>
+                                <Typography
+                                  variant="body2"
+                                  color={"sc_blue.main"}
+                                >
+                                  {val.fields.waktu}
+                                </Typography>
+                              </Stack>
                             </Stack>
                           </Grid>
                         ))}
                     </Grid>
-                  </FormControl>
+                    {errors.paket && (
+                      <Typography variant="subtitle2" color={"red"}>
+                        {errors.paket?.message}
+                      </Typography>
+                    )}
+                  </FormGroup>
 
+                  {/* TOR */}
                   <FormGroup>
                     <FormControlLabel
+                      {...register("tor", {
+                        required: "Kamu harus setuju dahulu ya",
+                      })}
                       control={<Checkbox />}
+                      value={true}
                       label={
                         <Typography variant="body2" color="sc_gray.dark">
                           Dengan mengisi formulir ini, saya menyetujui Kebijakan
@@ -209,11 +270,17 @@ function Daftar() {
                         </Typography>
                       }
                     />
+                    {errors.tor && (
+                      <Typography variant="subtitle2" color={"red"}>
+                        {errors.tor?.message}
+                      </Typography>
+                    )}
                   </FormGroup>
 
-                  <MyButton>Mulai Pendaftaran</MyButton>
+                  <MyButton type="submit">Mulai Pendaftaran</MyButton>
                 </Stack>
               </Grid>
+
               <Grid item md={4} sx={{ background: "#0056D2" }} p={4}>
                 <Stack spacing={2}>
                   {helper.map((value, i) => (
@@ -246,8 +313,26 @@ function Daftar() {
           </Grid>
         </Container>
       </Box>
-    </>
+    </Fragment>
   );
 }
 
 export default Daftar;
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  const { items: paket } = await client.getEntries({
+    content_type: "paketKelas",
+  });
+
+  return {
+    props: {
+      paket,
+    },
+    revalidate: 1,
+  };
+}
