@@ -1,11 +1,13 @@
 import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import "../styles/globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Layout from "../components/Layout";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 let theme = createTheme({
   typography: {
@@ -15,6 +17,10 @@ let theme = createTheme({
     sc_blue: {
       main: "#0056D2",
       dark: "#003B8F",
+      contrastText: "#FFFF",
+    },
+    sc_sky: {
+      main: "#80AAE8",
       contrastText: "#FFFF",
     },
     sc_yellow: {

@@ -14,10 +14,10 @@ import Section10 from "../components/homeSection/Section10";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
 
-export default function Home({ logo, testimoni }) {
+export default function Home({ logo, testimoni, course }) {
   useEffect(() => {
-    console.log(testimoni);
-  }, [testimoni]);
+    console.log(course);
+  }, [course]);
   return (
     <Fragment>
       <Head>
@@ -27,7 +27,7 @@ export default function Home({ logo, testimoni }) {
       <Container>
         <Section1 />
         <Section2 logo={logo} />
-        <Section3 />
+        <Section3 course={course} />
         <Section4 />
         <Section5 />
         <Section6 />
@@ -53,10 +53,15 @@ export async function getStaticProps() {
     content_type: "testimoni",
   });
 
+  const { items: course } = await client.getEntries({
+    content_type: "course",
+  });
+
   return {
     props: {
       logo,
       testimoni,
+      course,
     },
     revalidate: 1,
   };

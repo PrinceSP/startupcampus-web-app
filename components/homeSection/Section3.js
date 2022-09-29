@@ -1,14 +1,16 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Typed from "typed.js";
 import HighlightText from "../HighlightText";
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
 import Card from "../Card";
-import { kelas } from "../../content/kelas";
 import WordBreak from "../WordBreak";
-
-function Section3() {
+import MyButton from "../MyButton";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+function Section3({ course }) {
+  const swiper = useSwiper();
   // Create reference to store the DOM element containing the animation
   const el = React.useRef(null);
   // Create reference to store the Typed instance itself
@@ -36,7 +38,6 @@ function Section3() {
       typed.current.destroy();
     };
   }, []);
-
   return (
     <Grid container my={6} spacing={2}>
       <Grid item xs={12} data-aos="fade-right" id={"program"}>
@@ -46,44 +47,80 @@ function Section3() {
           <span ref={el} />
         </Typography>
       </Grid>
-      <Grid item xs={12} data-aos="fade-right">
-        <Typography variant="body2" color={"sc_gray.dark"}>
+      <Grid item xs={9} md={8} data-aos="fade-right">
+        <Typography variant="body2" color={"sc_gray.dark"} mr={3}>
           Pilih program yang sesuai dengan minatmu. Mulai tingkatkan skill-mu
           sebagai langkah awal <WordBreak /> berkarir di dunia digital.
         </Typography>
       </Grid>
+      <Grid item xs={3} md={4} display="flex" justifyContent={"flex-end"}>
+        <MyButton
+          padding={"15px 19px"}
+          color={"sc_sky"}
+          borderRadius={"5px 0 0 5px"}
+          variant="contained"
+          className="swipe-left"
+          onClick={() => swiper?.slidePrev()}
+        >
+          <ArrowBackIosRoundedIcon />
+        </MyButton>
+        <MyButton
+          padding={"15px 19px"}
+          borderRadius={"0 5px 5px 0px"}
+          variant="contained"
+          className="swipe-right"
+          onClick={() => swiper?.slideNext()}
+        >
+          <ArrowForwardIosRoundedIcon />
+        </MyButton>
+      </Grid>
       <Grid item xs={12} data-aos="fade-up">
-        <Splide
-          options={{
-            perPage: 3,
-            rewind: true,
-            gap: 2,
-            breakpoints: {
-              1000: {
-                perPage: 2,
-              },
-              640: {
-                perPage: 1,
-                gap: 2,
-              },
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          pagination={{ clickable: true }}
+          navigation={{
+            prevEl: ".swipe-left",
+            nextEl: ".swipe-right",
+          }}
+          spaceBetween={100}
+          slidesPerView={1}
+          centeredSlides
+          centeredSlidesBounds
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          breakpoints={{
+            690: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            // when window width is >= 640px
+            1050: {
+              slidesPerView: 3,
+              spaceBetween: 40,
             },
           }}
-          aria-label="Starup-Class"
         >
-          {kelas.map((item) => (
-            <SplideSlide key={item.title}>
-              <Card
-                img={item.img}
-                title={item.title}
-                desc={item.desc}
-                bulan={item.bulan}
-                level={item.level}
-                tanggal={item.Tanggal}
-                online={item.online}
-              />
-            </SplideSlide>
-          ))}
-        </Splide>
+          {course
+            ?.slice(0)
+            .reverse()
+            .map((value, idx) => {
+              const item = value.fields;
+              const img = item.image.fields.file;
+              return (
+                <SwiperSlide key={idx}>
+                  <Card
+                    img={img.url}
+                    title={item.title}
+                    desc={item.desc}
+                    bulan={item.durasi}
+                    level={item.level}
+                    tanggal={item.startDate}
+                    online={item.isOnline}
+                  />
+                </SwiperSlide>
+              );
+            })}
+        </Swiper>
       </Grid>
     </Grid>
   );

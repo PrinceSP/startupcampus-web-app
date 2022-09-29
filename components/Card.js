@@ -6,7 +6,7 @@ function Card({ img, title, desc, level, bulan, tanggal, online }) {
   const [cardHover, setCardHover] = useState(false);
   return (
     <Box
-      m={4}
+      // m={4}
       borderRadius={"16px"}
       overflow="hidden"
       width="369px"
