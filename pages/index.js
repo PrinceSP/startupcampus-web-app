@@ -18,10 +18,6 @@ import { TaglineContext } from "./_app";
 export default function Home({ logo, testimoni, course, tagline }) {
   const { setTagline } = useContext(TaglineContext);
   setTagline(tagline);
-
-  useEffect(() => {
-    // console.log(tagline);
-  }, [tagline]);
   return (
     <Fragment>
       <Head>

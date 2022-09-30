@@ -22,7 +22,7 @@ import {
   Typography,
 } from "@mui/material";
 import Head from "next/head";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
@@ -33,6 +33,7 @@ import { kelas } from "../content/kelas";
 import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
 import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
+import { TaglineContext } from "./_app";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
@@ -64,16 +65,18 @@ const styleInput = {
   },
 };
 
-function Daftar({ paket }) {
+function Daftar({ paket, tagline }) {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-
+  const { tagline: x, setTagline } = useContext(TaglineContext);
   const [state, setState] = useState(0);
-  useEffect(() => {}, [state, errors, watch]);
+  useEffect(() => {
+    setTagline(tagline);
+  }, [state, errors, watch, x]);
 
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
@@ -526,9 +529,14 @@ export async function getStaticProps() {
     content_type: "paketKelas",
   });
 
+  const { items: tagline } = await client.getEntries({
+    content_type: "section1",
+  });
+
   return {
     props: {
       paket,
+      tagline,
     },
     revalidate: 1,
   };

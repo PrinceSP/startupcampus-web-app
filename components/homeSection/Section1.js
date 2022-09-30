@@ -1,11 +1,12 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
+import { createClient } from "contentful";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { TaglineContext } from "../../pages/_app";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
 
 function Section1({ tagline }) {
-  const { fields } = tagline[0];
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
@@ -18,13 +19,13 @@ function Section1({ tagline }) {
       <Grid item xs={12} md={6} pt={4} data-aos="fade-right">
         <Stack spacing={2} alignItems="start" className="hero-text">
           <Typography variant="h4" fontWeight={800}>
-            {fields?.title}
+            {tagline[0]?.fields?.title}
             <Box component="span" sx={{ color: "sc_blue.main" }}>
-              {fields?.hashtag}
+              {tagline[0]?.fields?.hashtag}
             </Box>
           </Typography>
           <Typography variant="body1" lineHeight={2}>
-            {fields?.desc}
+            {tagline[0]?.fields?.desc}
           </Typography>
           <MyButton href={"#program"}>Pilih Programmu</MyButton>
         </Stack>

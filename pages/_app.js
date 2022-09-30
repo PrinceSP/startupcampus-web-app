@@ -41,11 +41,11 @@ let theme = createTheme({
 });
 
 theme = responsiveFontSizes(theme);
-export const TaglineContext = createContext();
+export const TaglineContext = createContext("Loading");
 
 function MyApp({ Component, pageProps }) {
   const [pageLoaded, setPageLoaded] = useState(false);
-  const [tagline, setTagline] = useState(null);
+  const [tagline, setTagline] = useState([]);
   useEffect(() => {
     setPageLoaded(true);
     AOS.init();

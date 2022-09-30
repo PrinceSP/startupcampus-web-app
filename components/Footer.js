@@ -6,13 +6,13 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { createClient } from "contentful";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TaglineContext } from "../pages/_app";
 
 function Footer() {
   const { tagline } = useContext(TaglineContext);
-  // console.log(tagline);
   return (
     <Grid
       container
@@ -34,10 +34,10 @@ function Footer() {
                 />
               </Box>
               <Typography variant="body2" color="white">
-                {tagline[0].fields.hashtag}
+                {tagline[0]?.fields?.hashtag}
               </Typography>
               <Typography variant="body2" color="white">
-                {tagline[0].fields.desc}
+                {tagline[0]?.fields?.desc}
               </Typography>
             </Stack>
           </Grid>
@@ -81,8 +81,8 @@ function Footer() {
                 <Typography variant="body2" color="white">
                   +62-856-4327-8256
                 </Typography>
-                <Typography variant="body2" color="white">
-                  startupcampus@zakyfoundation.org
+                <Typography variant="body2" color="white" wrap>
+                  {"startupcampus@ zakyfoundation.org ".toLocaleLowerCase()}
                 </Typography>
                 <Typography variant="body2" color="white">
                   Pejaten Barat, Jakarta Selatan, DKI Jakarta

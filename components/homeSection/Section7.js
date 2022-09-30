@@ -20,7 +20,13 @@ function Section7({ testimoni }) {
           <HighlightText>Puas</HighlightText> dengan Startup Campus
         </Typography>
       </Grid>
-      <Grid item xs={12} display="flex" justifyContent={"flex-end"} data-aos="fade-left">
+      <Grid
+        item
+        xs={12}
+        display="flex"
+        justifyContent={"flex-end"}
+        data-aos="fade-left"
+      >
         <MyButton
           padding={"15px 19px"}
           color={"sc_sky"}
@@ -53,8 +59,8 @@ function Section7({ testimoni }) {
           slidesPerView={1}
           centeredSlides
           centeredSlidesBounds
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             690: {
               slidesPerView: 2,
