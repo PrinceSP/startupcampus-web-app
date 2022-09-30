@@ -400,7 +400,7 @@ function Daftar({ paket }) {
       </FormGroup>
     </Fragment>
   );
-  const step = () => [<PilihProgram />, <IdentitasDiri />];
+  const step = () => [<PilihProgram key={0} />, <IdentitasDiri key={1} />];
 
   return (
     <Fragment>
