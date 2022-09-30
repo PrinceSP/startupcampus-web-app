@@ -418,7 +418,7 @@ function Daftar({ paket, tagline }) {
       >
         <Container>
           <Grid mt={15} py={10} justifyContent="center" container>
-            <Grid item xs={8} mb={6}>
+            <Grid item xs={12} md={8} mb={6}>
               <MultiStep step={state} />
             </Grid>
             <Grid
