@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 const steps = ["Pilih Program", "Identitas Diri", "Metode Pembayaran"];
 
-export default function MultiStep() {
+export default function MultiStep({ step }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -56,7 +56,7 @@ export default function MultiStep() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stepper activeStep={activeStep}>
+      <Stepper activeStep={step}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
