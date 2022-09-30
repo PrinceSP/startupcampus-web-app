@@ -10,14 +10,15 @@ import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import MyButton from "../MyButton";
 
-function Section7({ testimoni }) {
+function Section7({ testimoni, title7 }) {
   const swiper = useSwiper();
   return (
     <Grid container my={9} pt={4}>
       <Grid item xs={12} data-aos="fade-right">
         <Typography variant="h4" fontWeight={700}>
-          Dan Inilah Tanggapan Mereka yang <WordBreak />{" "}
-          <HighlightText>Puas</HighlightText> dengan Startup Campus
+          Dan ini Tanggapan Mereka
+          <WordBreak />
+          Tentang <HighlightText width="-2%">Startup Campus</HighlightText>
         </Typography>
       </Grid>
       <Grid
