@@ -400,7 +400,7 @@ function Daftar({ paket }) {
       </FormGroup>
     </Fragment>
   );
-  const step = [<PilihProgram />, <IdentitasDiri />];
+  const step = () => [<PilihProgram />, <IdentitasDiri />];
 
   return (
     <Fragment>
@@ -447,7 +447,7 @@ function Daftar({ paket }) {
                     pendaftaranmu.
                   </Typography>
 
-                  {state >= 0 && state < 2 && step[state]}
+                  {state >= 0 && state < 2 && step()[state]}
 
                   {/* SUBMIT BUTTON */}
                   <Stack
@@ -455,7 +455,7 @@ function Daftar({ paket }) {
                     justifyContent={state == 0 ? "flex-end" : "space-between"}
                     width={"100%"}
                   >
-                    {state > 0 && state <= step.length && (
+                    {state > 0 && state <= step().length && (
                       <MyButton
                         variant="outlined"
                         onClick={() => setState((prev) => prev - 1)}
