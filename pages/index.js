@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import Section1 from "../components/homeSection/Section1";
 import Section2 from "../components/homeSection/Section2";
 import Section3 from "../components/homeSection/Section3";
@@ -13,11 +13,15 @@ import Section9 from "../components/homeSection/Section9";
 import Section10 from "../components/homeSection/Section10";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
+import { TaglineContext } from "./_app";
 
-export default function Home({ logo, testimoni, course }) {
+export default function Home({ logo, testimoni, course, tagline }) {
+  const { setTagline } = useContext(TaglineContext);
+  setTagline(tagline);
+
   useEffect(() => {
-    console.log(course);
-  }, [course]);
+    // console.log(tagline);
+  }, [tagline]);
   return (
     <Fragment>
       <Head>
@@ -25,7 +29,7 @@ export default function Home({ logo, testimoni, course }) {
         <meta name="description" content="Official Website of StartupCampus" />
       </Head>
       <Container>
-        <Section1 />
+        <Section1 tagline={tagline} />
         <Section2 logo={logo} />
         <Section3 course={course} />
         <Section4 />
@@ -57,11 +61,16 @@ export async function getStaticProps() {
     content_type: "course",
   });
 
+  const { items: tagline } = await client.getEntries({
+    content_type: "section1",
+  });
+
   return {
     props: {
       logo,
       testimoni,
       course,
+      tagline,
     },
     revalidate: 1,
   };

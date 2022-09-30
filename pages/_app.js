@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import "../styles/globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -41,22 +41,25 @@ let theme = createTheme({
 });
 
 theme = responsiveFontSizes(theme);
+export const TaglineContext = createContext();
 
 function MyApp({ Component, pageProps }) {
   const [pageLoaded, setPageLoaded] = useState(false);
-
+  const [tagline, setTagline] = useState(null);
   useEffect(() => {
     setPageLoaded(true);
     AOS.init();
   }, []);
   return (
-    <ThemeProvider theme={theme}>
-      {pageLoaded ? (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      ) : null}
-    </ThemeProvider>
+    <TaglineContext.Provider value={{ tagline, setTagline }}>
+      <ThemeProvider theme={theme}>
+        {pageLoaded ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : null}
+      </ThemeProvider>
+    </TaglineContext.Provider>
   );
 }
 

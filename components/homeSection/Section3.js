@@ -93,8 +93,8 @@ function Section3({ course }) {
           slidesPerView={1}
           centeredSlides
           centeredSlidesBounds
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             690: {
               slidesPerView: 2,

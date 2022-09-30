@@ -7,9 +7,12 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
+import { TaglineContext } from "../pages/_app";
 
 function Footer() {
+  const { tagline } = useContext(TaglineContext);
+  // console.log(tagline);
   return (
     <Grid
       container
@@ -31,10 +34,10 @@ function Footer() {
                 />
               </Box>
               <Typography variant="body2" color="white">
-                #EducationToTheNextLevel
+                {tagline[0].fields.hashtag}
               </Typography>
               <Typography variant="body2" color="white">
-                Digital Skill dari Zero to Hero hanya dalam waktu 5 Bulan
+                {tagline[0].fields.desc}
               </Typography>
             </Stack>
           </Grid>

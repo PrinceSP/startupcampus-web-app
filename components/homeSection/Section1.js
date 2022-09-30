@@ -4,7 +4,8 @@ import React, { useEffect } from "react";
 import HighlightText from "../HighlightText";
 import MyButton from "../MyButton";
 
-function Section1() {
+function Section1({ tagline }) {
+  const { fields } = tagline[0];
   return (
     <Grid
       pt={{ xs: 6, md: 0 }}
@@ -17,15 +18,13 @@ function Section1() {
       <Grid item xs={12} md={6} pt={4} data-aos="fade-right">
         <Stack spacing={2} alignItems="start" className="hero-text">
           <Typography variant="h4" fontWeight={800}>
-            Siapapun Kamu, Semua Bisa{" "}
+            {fields?.title}
             <Box component="span" sx={{ color: "sc_blue.main" }}>
-              #JadiMahirDigital
+              {fields?.hashtag}
             </Box>
           </Typography>
           <Typography variant="body1" lineHeight={2}>
-            Raih karier impianmu sebagai founder, UI/UX designer, data
-            scientist, backend engineer, atau AI specialist bersama Startup
-            Campus!
+            {fields?.desc}
           </Typography>
           <MyButton href={"#program"}>Pilih Programmu</MyButton>
         </Stack>
