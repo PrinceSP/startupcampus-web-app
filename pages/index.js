@@ -1,21 +1,12 @@
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
-import { Fragment, useContext, useEffect, useState } from "react";
-import Section1 from "../components/homeSection/Section1";
-import Section2 from "../components/homeSection/Section2";
-import Section3 from "../components/homeSection/Section3";
-import Section4 from "../components/homeSection/Section4";
-import Section5 from "../components/homeSection/Section5";
-import Section6 from "../components/homeSection/Section6";
-import Section7 from "../components/homeSection/Section7";
-import Section8 from "../components/homeSection/Section8";
-import Section9 from "../components/homeSection/Section9";
-import Section10 from "../components/homeSection/Section10";
+import {Section1,Section2,Section3,Section4,Section5,Section6,Section7,Section8,Section9,Section10} from "../components";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
 import { TaglineContext } from "./_app";
 
-export default function Home({ logo, testimoni, course, tagline, title7 }) {
+const Home = ({ logo, testimoni, course, tagline, title7 })=>{
   const { setTagline } = useContext(TaglineContext);
   setTagline(tagline);
   return (
@@ -76,3 +67,5 @@ export async function getStaticProps() {
     revalidate: 1,
   };
 }
+
+export default Home
