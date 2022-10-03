@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import FormProvider from "../context/FormContext";
 
 let theme = createTheme({
   typography: {
@@ -52,13 +53,15 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <TaglineContext.Provider value={{ tagline, setTagline }}>
-      <ThemeProvider theme={theme}>
-        {pageLoaded ? (
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        ) : null}
-      </ThemeProvider>
+      <FormProvider>
+        <ThemeProvider theme={theme}>
+          {pageLoaded ? (
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          ) : null}
+        </ThemeProvider>
+      </FormProvider>
     </TaglineContext.Provider>
   );
 }

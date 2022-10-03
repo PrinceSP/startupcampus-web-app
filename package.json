@@ -16,12 +16,14 @@
     "@splidejs/react-splide": "^0.7.10",
     "aos": "^3.0.0-beta.6",
     "contentful": "^9.2.4",
+    "nanoid": "^4.0.0",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.36.1",
     "swiper": "^8.4.2",
-    "typed.js": "^2.0.12"
+    "typed.js": "^2.0.12",
+    "xendit-node": "^1.21.6"
   },
   "devDependencies": {
     "eslint": "8.23.0",
