@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-function MyButton({
+const MyButton = ({
   children,
   variant = "contained",
   color = "sc_blue",
@@ -10,7 +10,7 @@ function MyButton({
   borderRadius,
   isDropdown,
   ...args
-}) {
+})=>{
   return (
     <Button
       variant={variant}

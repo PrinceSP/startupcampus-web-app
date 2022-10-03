@@ -12,7 +12,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { DrawerContext } from "../pages/_app";
 
-export default function TemporaryDrawer() {
+const TemporaryDrawer = ()=>{
   const { drawerOpen, SetDrawerOpen } = React.useContext(DrawerContext);
 
   const [state, setState] = React.useState({
@@ -87,3 +87,5 @@ export default function TemporaryDrawer() {
     </div>
   );
 }
+
+export default TemporaryDrawer

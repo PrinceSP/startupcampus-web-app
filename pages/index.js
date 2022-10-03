@@ -31,7 +31,7 @@ const Home = ({ logo, testimoni, course, tagline, title7 })=>{
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps=async()=>{
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,

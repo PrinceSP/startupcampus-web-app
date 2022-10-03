@@ -1,7 +1,7 @@
-import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import React from "react";
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 
-export default function PaymentForm({ loading }) {
+const PaymentForm = ({ loading })=>{
   return (
     <Stack>
       <Typography>Membuat Invoice</Typography>
@@ -9,3 +9,5 @@ export default function PaymentForm({ loading }) {
     </Stack>
   );
 }
+
+export default PaymentForm

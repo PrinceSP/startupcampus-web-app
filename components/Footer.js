@@ -11,7 +11,7 @@ import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { TaglineContext } from "../pages/_app";
 
-function Footer() {
+const Footer = ()=>{
   const { tagline } = useContext(TaglineContext);
   return (
     <Grid
