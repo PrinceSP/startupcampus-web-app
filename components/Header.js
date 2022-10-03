@@ -151,15 +151,15 @@ export default function Header() {
                 <Dropdown>
                   <NavItem isDropDown={true}>Program</NavItem>
                 </Dropdown>
-                <Dropdown>
-                  <NavItem isDropDown={true}>Tentang Kami</NavItem>
-                </Dropdown>
                 <Link href={"/#testimoni"} underline="none">
                   <NavItem>Testimoni</NavItem>
                 </Link>
                 <Link href={"/blog"} underline="none">
                   <NavItem>Blog</NavItem>
                 </Link>
+                <Dropdown>
+                  <NavItem isDropDown={true}>Tentang Kami</NavItem>
+                </Dropdown>
               </Stack>
 
               <Stack
