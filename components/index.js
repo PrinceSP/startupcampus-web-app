@@ -1,1 +1,1 @@
-export * from './homeSection'
+export * from './LandingPage'
