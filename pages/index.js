@@ -1,21 +1,12 @@
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
-import { Fragment, useContext, useEffect, useState } from "react";
-import Section1 from "../components/LandingPage/Section1";
-import Section2 from "../components/LandingPage/Section2";
-import Section3 from "../components/LandingPage/Section3";
-import Section4 from "../components/LandingPage/Section4";
-import Section5 from "../components/LandingPage/Section5";
-import Section6 from "../components/LandingPage/Section6";
-import Section7 from "../components/LandingPage/Section7";
-import Section8 from "../components/LandingPage/Section8";
-import Section9 from "../components/LandingPage/Section9";
-import Section10 from "../components/LandingPage/Section10";
+import {Section1,Section2,Section3,Section4,Section5,Section6,Section7,Section8,Section9,Section10} from "../components";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
 import { TaglineContext } from "./_app";
 
-export default function Home({ logo, testimoni, course, tagline, title7 }) {
+const Home = ({ logo, testimoni, course, tagline, title7 })=>{
   const { setTagline } = useContext(TaglineContext);
   setTagline(tagline);
   return (
@@ -40,7 +31,7 @@ export default function Home({ logo, testimoni, course, tagline, title7 }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps=async()=>{
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -76,3 +67,5 @@ export async function getStaticProps() {
     revalidate: 1,
   };
 }
+
+export default Home

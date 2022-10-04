@@ -23,32 +23,33 @@ import {
 } from "@mui/material";
 import Head from "next/head";
 import React, { Fragment, useContext, useEffect, useState } from "react";
+import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
+import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import { createClient } from "contentful";
 import { useForm } from "react-hook-form";
 import { kelas } from "../content/kelas";
-import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
-import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
 import { TaglineContext } from "./_app";
 import MyTitle from "../components/MyTitle";
 import MyDesc from "../components/MyDesc";
 import ChooseProgramForm from "../components/RegistPage/ChooseProgramForm";
-import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import IndentityForm from "../components/RegistPage/IndentityForm";
 import PaymentForm from "../components/RegistPage/PaymentForm";
 import Xendit from "xendit-node";
 import { nanoid } from "nanoid";
+
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
   "Pembayaran dapat dilakukan H+2 setelah mengisi formulir pendaftaran",
 ];
 
-function Daftar({ paket, tagline }) {
+const Daftar = ({ paket, tagline })=>{
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
 
@@ -202,7 +203,7 @@ function Daftar({ paket, tagline }) {
 
 export default Daftar;
 
-export async function getStaticProps() {
+export const getStaticProps = async()=>{
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,

@@ -16,7 +16,7 @@ const NavItem = ({ children }) => (
   </Typography>
 );
 
-export default function Dropdown({ children }) {
+const Dropdown = ({ children })=>{
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -101,3 +101,5 @@ export default function Dropdown({ children }) {
     </Box>
   );
 }
+
+export default Dropdown

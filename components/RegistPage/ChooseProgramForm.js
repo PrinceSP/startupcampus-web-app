@@ -1,5 +1,5 @@
-import { Stack } from "@mui/material";
 import React, { Fragment } from "react";
+import { Stack } from "@mui/material";
 import { kelas } from "../../content/kelas";
 import { useMyForm } from "../../context/FormContext";
 import MyCheckBox from "./MyCheckBox";
@@ -7,7 +7,7 @@ import MyInput from "./MyInput";
 import MyKelas from "./MyKelas";
 import MySelect from "./MySelect";
 
-export default function ChooseProgramForm({ paket }) {
+const ChooseProgramForm = ({ paket })=>{
   const mkelas = kelas.map((items) => items.title);
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
@@ -29,3 +29,5 @@ export default function ChooseProgramForm({ paket }) {
     </Stack>
   );
 }
+
+export default ChooseProgramForm

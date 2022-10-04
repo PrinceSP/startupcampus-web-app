@@ -1,8 +1,8 @@
-import { Stack, TextField, Typography } from "@mui/material";
 import React, { Fragment } from "react";
+import { Stack, TextField, Typography } from "@mui/material";
 import { useMyForm } from "../../context/FormContext";
 
-export default function MyInput({ label, name, type, placeholder, ...args }) {
+const MyInput = ({ label, name, type, placeholder, ...args })=>{
   const { register, handleSubmit, watch, errors } = useMyForm();
   const textArea =
     type == "text-area"
@@ -39,3 +39,5 @@ export default function MyInput({ label, name, type, placeholder, ...args }) {
     </Stack>
   );
 }
+
+export default MyInput

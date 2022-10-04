@@ -1,3 +1,4 @@
+import React, { Fragment } from "react";
 import {
   Checkbox,
   FormControl,
@@ -5,10 +6,9 @@ import {
   FormGroup,
   FormHelperText,
 } from "@mui/material";
-import React, { Fragment } from "react";
 import { useMyForm } from "../../context/FormContext";
 
-export default function MyCheckBox({ name }) {
+const MyCheckBox = ({ name })=>{
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <Fragment>
@@ -32,3 +32,5 @@ export default function MyCheckBox({ name }) {
     </Fragment>
   );
 }
+
+export default MyCheckBox
