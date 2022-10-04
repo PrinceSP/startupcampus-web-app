@@ -154,7 +154,7 @@ function Daftar({ paket, tagline }) {
                     display={"flex"}
                     justifyContent={state > 0 ? "space-between" : "flex-end"}
                   >
-                    {state > 0 && (
+                    {state > 0 && state < 2 && (
                       <MyButton
                         variant="outlined"
                         onClick={() => setState((prev) => prev - 1)}
