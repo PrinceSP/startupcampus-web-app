@@ -4,7 +4,7 @@ import Xendit from "xendit-node";
 export default async function handler(req, res) {
   const { method, body } = req;
   const { email, name, numPhone, paket, program } = body;
-  console.log(method, body);
+  //   console.log(method, body);
   if (method != "POST") {
     res.status(400).json({ message: "Bad Request", status: "400" });
   }
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
     },
   })
     .then((val) => {
-      console.log(`Invoice created with ID: ${val.id}`);
+      //   console.log(`Invoice created with ID: ${val.id}`);
       res.status(200).json(val);
     })
     .catch((err) => {
