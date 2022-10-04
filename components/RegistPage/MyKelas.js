@@ -96,4 +96,4 @@ const MyKelas = ({ paket, name })=>{
   );
 }
 
-export default Mykelas
+export default MyKelas

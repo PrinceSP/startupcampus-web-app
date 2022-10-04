@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,18 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  Container,
-  Divider,
-  Drawer,
-  Link,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-} from "@mui/material";
+import {Container,Divider,Drawer,Link,List,ListItem,ListItemButton,ListItemIcon,ListItemText,Stack} from "@mui/material";
 import Image from "next/image";
 import { ExpandMoreRounded, ShoppingCartOutlined } from "@mui/icons-material";
 import MyButton from "./MyButton";
@@ -54,7 +43,7 @@ const Header = ()=>{
     );
   }
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,
@@ -151,10 +140,10 @@ const Header = ()=>{
                 <Dropdown>
                   <NavItem isDropDown={true}>Program</NavItem>
                 </Dropdown>
-                <Link href={"/#testimoni"} underline="none">
+                <Link href={"#testimoni"} underline="none">
                   <NavItem>Testimoni</NavItem>
                 </Link>
-                <Link href={"/blog"} underline="none">
+                <Link href={"#blog"} underline="none">
                   <NavItem>Blog</NavItem>
                 </Link>
                 <Dropdown>

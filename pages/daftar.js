@@ -1,28 +1,17 @@
+import React, {useContext, useEffect, useState } from "react";
+import Head from "next/head";
 import { Label } from "@mui/icons-material";
 import {
   Box,
-  Checkbox,
   Container,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  FormLabel,
   Grid,
-  Input,
-  InputLabel,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Radio,
-  RadioGroup,
   Stack,
-  TextareaAutosize,
-  TextField,
   Typography,
 } from "@mui/material";
-import Head from "next/head";
-import React, { Fragment, useContext, useEffect, useState } from "react";
 import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
@@ -95,7 +84,7 @@ const Daftar = ({ paket, tagline })=>{
     <PaymentForm key={2} loading={loading} />,
   ];
   return (
-    <Fragment>
+    <>
       <Head>
         <title>Daftar | Startup Campus</title>
       </Head>
@@ -197,7 +186,7 @@ const Daftar = ({ paket, tagline })=>{
           </Grid>
         </Container>
       </Box>
-    </Fragment>
+    </>
   );
 }
 

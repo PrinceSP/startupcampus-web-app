@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
 import {Section1,Section2,Section3,Section4,Section5,Section6,Section7,Section8,Section9,Section10} from "../components";
@@ -10,7 +10,7 @@ const Home = ({ logo, testimoni, course, tagline, title7 })=>{
   const { setTagline } = useContext(TaglineContext);
   setTagline(tagline);
   return (
-    <Fragment>
+    <>
       <Head>
         <title>StartupCampus</title>
         <meta name="description" content="Official Website of StartupCampus" />
@@ -27,7 +27,7 @@ const Home = ({ logo, testimoni, course, tagline, title7 })=>{
         <Section9 />
       </Container>
       <Section10 />
-    </Fragment>
+    </>
   );
 }
 
