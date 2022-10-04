@@ -41,6 +41,7 @@ const helper = [
 function Daftar({ paket, tagline }) {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const { tagline: x, setTagline } = useContext(TaglineContext);
   const [state, setState] = useState(0);
@@ -57,14 +58,16 @@ function Daftar({ paket, tagline }) {
         numPhone: data.num_phone,
       });
       // console.log(response);
+      setLoading(false);
       const { invoice_url } = response.data;
       setTimeout(() => {
         window.location.replace(invoice_url);
       }, 1000);
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      setLoading(false);
+      setError(true);
+      console.error(e.message);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -86,6 +89,8 @@ function Daftar({ paket, tagline }) {
           <Typography>Membuat Invoice</Typography>
           <CircularProgress />
         </>
+      ) : error ? (
+        <Typography color={"red"}>Terjadi kesalahan</Typography>
       ) : (
         <>
           <Typography>Mengarahkan ke halaman invoice...</Typography>
