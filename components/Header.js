@@ -25,7 +25,7 @@ import Dropdown from "./Dropdown";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
-export default function Header() {
+const Header = ()=>{
   function NavItem({ children, isDropDown = false }) {
     return (
       <Typography
@@ -113,7 +113,7 @@ export default function Header() {
   );
 
   return (
-    <React.Fragment>
+    <>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar color="transparent" elevation={0} position="absolute">
           <Container>
@@ -201,6 +201,8 @@ export default function Header() {
       >
         {list("left")}
       </Drawer>
-    </React.Fragment>
+    </>
   );
 }
+
+export default Header

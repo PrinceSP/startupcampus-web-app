@@ -2,7 +2,7 @@ import { Box, Chip, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import MyButton from "./MyButton";
 
-function Card({ img, title, desc, level, bulan, tanggal, online }) {
+const Card = ({ img, title, desc, level, bulan, tanggal, online })=>{
   const [cardHover, setCardHover] = useState(false);
   return (
     <Box
@@ -21,7 +21,6 @@ function Card({ img, title, desc, level, bulan, tanggal, online }) {
         sx={{
           position: "relative",
           width: "100%",
-          backgroundImage: `url(${img ?? "/images/FO.png"})`,
           backgroundSize: "cover",
           height: "200px",
           "&::before": {
@@ -32,6 +31,7 @@ function Card({ img, title, desc, level, bulan, tanggal, online }) {
             background:
               "linear-gradient(179.76deg, rgba(43, 44, 39, 0) 25.6%, #2B2C27 99.79%)",
           },
+          backgroundImage: `url(${img ?? "/images/FO.png"})`,
         }}
       ></Box>
       <Stack p={4} spacing={2}>

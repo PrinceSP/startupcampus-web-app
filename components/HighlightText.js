@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
 import React from "react";
+import { Box, Typography } from "@mui/material";
 
 function HighlightText({ children, width = "-5%", variant }) {
   return (

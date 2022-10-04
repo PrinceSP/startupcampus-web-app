@@ -1,7 +1,7 @@
 import { Input } from "@mui/material";
 import React from "react";
 
-function InputText({ type, placeholder, name, ...args }) {
+const InputText = ({ type, placeholder, name, ...args })=>{
   return (
     <Input
       type={type ?? "text"}

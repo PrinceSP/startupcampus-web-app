@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Chip,
   FormControl,
@@ -9,10 +10,9 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
 import { useMyForm } from "../../context/FormContext";
 
-export default function MyKelas({ paket, name }) {
+const MyKelas = ({ paket, name })=>{
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <FormControl error={errors[name] ? true : false}>
@@ -95,3 +95,5 @@ export default function MyKelas({ paket, name }) {
     </FormControl>
   );
 }
+
+export default Mykelas

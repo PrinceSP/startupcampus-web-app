@@ -1,5 +1,5 @@
-import { Stack } from "@mui/material";
 import React from "react";
+import { Stack } from "@mui/material";
 import MyInput from "./MyInput";
 import MySelect from "./MySelect";
 
@@ -11,7 +11,7 @@ const media = [
   "Twitter",
 ];
 
-export default function IndentityForm() {
+const IndentityForm = ()=>{
   return (
     <Stack spacing={1}>
       <MyInput
@@ -37,3 +37,5 @@ export default function IndentityForm() {
     </Stack>
   );
 }
+
+export default IndentityForm
