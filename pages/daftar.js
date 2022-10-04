@@ -1,29 +1,18 @@
+import React, {useContext, useEffect, useState } from "react";
+import Head from "next/head";
 import { Label } from "@mui/icons-material";
 import {
   Box,
-  Checkbox,
-  CircularProgress,
   Container,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  FormLabel,
   Grid,
-  Input,
-  InputLabel,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Radio,
-  RadioGroup,
   Stack,
-  TextareaAutosize,
-  TextField,
   Typography,
 } from "@mui/material";
-import Head from "next/head";
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
@@ -106,7 +95,7 @@ function Daftar({ paket, tagline }) {
     </Stack>,
   ];
   return (
-    <Fragment>
+    <>
       <Head>
         <title>Daftar | Startup Campus</title>
       </Head>
@@ -210,7 +199,7 @@ function Daftar({ paket, tagline }) {
           </Grid>
         </Container>
       </Box>
-    </Fragment>
+    </>
   );
 }
 

@@ -1,8 +1,9 @@
-import * as React from "react";
+import React, {useState} from "react";
 import Button from "@mui/material/Button";
 import { ExpandLessRounded, ExpandMoreRounded } from "@mui/icons-material";
-import { Box, Stack, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Stack, Typography , Link} from "@mui/material";
+// import Link from "next/link";
+// import Founder from './'
 
 const NavItem = ({ children }) => (
   <Typography
@@ -17,7 +18,7 @@ const NavItem = ({ children }) => (
 );
 
 const Dropdown = ({ children })=>{
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -92,7 +93,9 @@ const Dropdown = ({ children })=>{
         <Typography variant="body1" color="#BDBDBD" fontWeight={700}>
           Program Intensif
         </Typography>
-        <NavItem>Founder</NavItem>
+        <Link href={"/founder"} underline="none">
+          <NavItem>Founder</NavItem>
+        </Link>
         <NavItem>UI/UX Design</NavItem>
         <NavItem>Data Scientist</NavItem>
         <NavItem>Backend Engineer</NavItem>
