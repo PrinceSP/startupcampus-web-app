@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import { Label } from "@mui/icons-material";
 import {
@@ -12,7 +12,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
@@ -27,7 +26,7 @@ import { TaglineContext } from "./_app";
 import MyTitle from "../components/MyTitle";
 import MyDesc from "../components/MyDesc";
 import ChooseProgramForm from "../components/RegistPage/ChooseProgramForm";
-import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
+import { useMyForm } from "../context/FormContext";
 import IndentityForm from "../components/RegistPage/IndentityForm";
 import PaymentForm from "../components/RegistPage/PaymentForm";
 import axios from "axios";
