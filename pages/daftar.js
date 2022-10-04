@@ -2,6 +2,7 @@ import { Label } from "@mui/icons-material";
 import {
   Box,
   Checkbox,
+  CircularProgress,
   Container,
   FormControl,
   FormControlLabel,
@@ -40,12 +41,12 @@ import ChooseProgramForm from "../components/RegistPage/ChooseProgramForm";
 import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import IndentityForm from "../components/RegistPage/IndentityForm";
 import PaymentForm from "../components/RegistPage/PaymentForm";
-import Xendit from "xendit-node";
-import { nanoid } from "nanoid";
+import axios from "axios";
+
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
-  "Pembayaran dapat dilakukan H+2 setelah mengisi formulir pendaftaran",
+  "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 
 function Daftar({ paket, tagline }) {
@@ -55,9 +56,27 @@ function Daftar({ paket, tagline }) {
   const { tagline: x, setTagline } = useContext(TaglineContext);
   const [state, setState] = useState(0);
 
-  const setInvoice = async () => {
-    
-  }
+  const setInvoice = async (data) => {
+    setLoading(true);
+
+    try {
+      const response = await axios.post("/api/payment", {
+        name: data.name,
+        email: data.email,
+        program: data.track,
+        paket: data.paket,
+        numPhone: data.num_phone,
+      });
+      // console.log(response);
+      const { invoice_url } = response.data;
+      setTimeout(() => {
+        window.location.replace(invoice_url);
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
     setTagline(tagline);
@@ -66,13 +85,25 @@ function Daftar({ paket, tagline }) {
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
     if (state == 1) {
-      setInvoice();
+      setInvoice(data);
     }
   };
   const step = [
     <ChooseProgramForm key={0} paket={paket} />,
     <IndentityForm key={1} />,
-    <PaymentForm key={2} loading={loading} />,
+    <Stack key={2} alignItems="center" spacing={4}>
+      {loading ? (
+        <>
+          <Typography>Membuat Invoice</Typography>
+          <CircularProgress />
+        </>
+      ) : (
+        <>
+          <Typography>Mengarahkan ke halaman invoice...</Typography>
+          <CircularProgress />
+        </>
+      )}
+    </Stack>,
   ];
   return (
     <Fragment>
@@ -131,9 +162,11 @@ function Daftar({ paket, tagline }) {
                         Kembali
                       </MyButton>
                     )}
-                    <MyButton type="submit">
-                      {state == 0 && state < 3 ? "Mulai Pendaftaran" : "Lanjut"}
-                    </MyButton>
+                    {state >= 0 && state < 2 && (
+                      <MyButton type="submit">
+                        {state == 0 ? "Mulai Pendaftaran" : "Lanjut"}
+                      </MyButton>
+                    )}
                   </Box>
                 </Stack>
               </Grid>
