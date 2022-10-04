@@ -59,21 +59,22 @@ function Daftar({ paket, tagline }) {
     const x = new Xendit({
       secretKey: process.env.XENDIT_API_KEY,
     });
-    const { Invoice } = x;
-    const invoiceSpecificOptions = {};
-    const i = new Invoice(invoiceSpecificOptions);
 
-    const resp = await i
-      .createInvoice({
-        externalID: "your-external-id",
-        payerEmail: "stanley@xendit.co",
-        description: "Invoice for Shoes Purchase",
-        amount: 100000,
-      })
-      .then(({ id }) => {
-        console.log(`Invoice created with ID: ${id}`);
-      });
-
+    const resp = await fetch("https://api.xendit.co/v2/invoices", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "Basic eG5kX3Byb2R1Y3Rpb25fa1BETWxwQlVvT2YwdkhIY2h0dDBFRERGS1IwWEQ1R0FwMmVkdmJiWmlBZ0loaU5iS0g5aEd3RUI5UWtKWjo=",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: {
+        external_id: `invoice-${nanoid(16)}`,
+        amount: 10000,
+        payer_email: watch("email"),
+        description: "Invoice Demo 3 Oktober",
+      },
+    });
     console.log(resp);
   };
 
