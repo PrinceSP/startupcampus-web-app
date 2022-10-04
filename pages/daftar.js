@@ -17,71 +17,82 @@ import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
-import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import { createClient } from "contentful";
 import { useForm } from "react-hook-form";
 import { kelas } from "../content/kelas";
+import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
+import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
 import { TaglineContext } from "./_app";
 import MyTitle from "../components/MyTitle";
 import MyDesc from "../components/MyDesc";
 import ChooseProgramForm from "../components/RegistPage/ChooseProgramForm";
+import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import IndentityForm from "../components/RegistPage/IndentityForm";
 import PaymentForm from "../components/RegistPage/PaymentForm";
-import Xendit from "xendit-node";
-import { nanoid } from "nanoid";
+import axios from "axios";
 
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
-  "Pembayaran dapat dilakukan H+2 setelah mengisi formulir pendaftaran",
+  "Pembayaran dapat dilakukan 24 jam setelah mengisi formulir pendaftaran",
 ];
 
-const Daftar = ({ paket, tagline })=>{
+function Daftar({ paket, tagline }) {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
 
   const { tagline: x, setTagline } = useContext(TaglineContext);
   const [state, setState] = useState(0);
 
-  const setInvoice = async () => {
-    const x = new Xendit({
-      secretKey: process.env.XENDIT_API_KEY,
-    });
-    const { Invoice } = x;
-    const invoiceSpecificOptions = {};
-    const i = new Invoice(invoiceSpecificOptions);
+  const setInvoice = async (data) => {
+    setLoading(true);
 
-    const resp = await i
-      .createInvoice({
-        externalID: "your-external-id",
-        payerEmail: "stanley@xendit.co",
-        description: "Invoice for Shoes Purchase",
-        amount: 100000,
-      })
-      .then(({ id }) => {
-        console.log(`Invoice created with ID: ${id}`);
+    try {
+      const response = await axios.post("/api/payment", {
+        name: data.name,
+        email: data.email,
+        program: data.track,
+        paket: data.paket,
+        numPhone: data.num_phone,
       });
-
-    console.log(resp);
+      // console.log(response);
+      const { invoice_url } = response.data;
+      setTimeout(() => {
+        window.location.replace(invoice_url);
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+    }
+    setLoading(false);
   };
 
   useEffect(() => {
     setTagline(tagline);
-  }, []);
+  }, [loading]);
+
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
-    if (state > 1) {
-      setLoading(true);
-      setInvoice();
-      setLoading(false);
+    if (state == 1) {
+      setInvoice(data);
     }
   };
   const step = [
     <ChooseProgramForm key={0} paket={paket} />,
     <IndentityForm key={1} />,
-    <PaymentForm key={2} loading={loading} />,
+    <Stack key={2} alignItems="center" spacing={4}>
+      {loading ? (
+        <>
+          <Typography>Membuat Invoice</Typography>
+          <CircularProgress />
+        </>
+      ) : (
+        <>
+          <Typography>Mengarahkan ke halaman invoice...</Typography>
+          <CircularProgress />
+        </>
+      )}
+    </Stack>,
   ];
   return (
     <>
@@ -132,7 +143,7 @@ const Daftar = ({ paket, tagline })=>{
                     display={"flex"}
                     justifyContent={state > 0 ? "space-between" : "flex-end"}
                   >
-                    {state > 0 && (
+                    {state > 0 && state < 2 && (
                       <MyButton
                         variant="outlined"
                         onClick={() => setState((prev) => prev - 1)}
@@ -140,9 +151,11 @@ const Daftar = ({ paket, tagline })=>{
                         Kembali
                       </MyButton>
                     )}
-                    <MyButton type="submit">
-                      {state == 0 ? "Mulai Pendaftaran" : "Lanjut"}
-                    </MyButton>
+                    {state >= 0 && state < 2 && (
+                      <MyButton type="submit">
+                        {state == 0 ? "Mulai Pendaftaran" : "Lanjut"}
+                      </MyButton>
+                    )}
                   </Box>
                 </Stack>
               </Grid>
@@ -192,7 +205,7 @@ const Daftar = ({ paket, tagline })=>{
 
 export default Daftar;
 
-export const getStaticProps = async()=>{
+export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,

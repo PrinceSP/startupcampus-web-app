@@ -6,9 +6,9 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const steps = ["Pilih Program", "Identitas Diri", "Metode Pembayaran"];
+const steps = ["Pilih Program", "Identitas Diri", "Pembayaran"];
 
-const MultiStep = ({ step })=>{
+const MultiStep = ({ step }) => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -112,6 +112,6 @@ const MultiStep = ({ step })=>{
       )} */}
     </Box>
   );
-}
+};
 
-export default MultiStep
+export default MultiStep;
