@@ -56,25 +56,8 @@ function Daftar({ paket, tagline }) {
   const [state, setState] = useState(0);
 
   const setInvoice = async () => {
-    setLoading(true);
-
-    const x = new Xendit({
-      secretKey: process.env.XENDIT_API_KEY,
-    });
-    const { Invoice } = x;
-    const invoiceSpecificOptions = {};
-    const i = new Invoice(invoiceSpecificOptions);
-    i.createInvoice({
-      externalID: `invoice-${nanoid(16)}`,
-      payerEmail: watch("email"),
-      description: "Invoice for Course Purchase",
-      amount: 100000,
-    }).then(({ id }) => {
-      console.log(`Invoice created with ID: ${id}`);
-    });
-
-    setLoading(false);
-  };
+    
+  }
 
   useEffect(() => {
     setTagline(tagline);
