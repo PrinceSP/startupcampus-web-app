@@ -1,5 +1,5 @@
-import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import { createContext, useEffect, useState } from "react";
+import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import "../styles/globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";

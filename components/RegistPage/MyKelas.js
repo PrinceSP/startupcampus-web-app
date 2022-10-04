@@ -96,4 +96,6 @@ const MyKelas = ({ paket, name }) => {
   );
 };
 
-export default MyKelas;
+
+export default MyKelas
+
