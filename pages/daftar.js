@@ -23,33 +23,32 @@ import {
 } from "@mui/material";
 import Head from "next/head";
 import React, { Fragment, useContext, useEffect, useState } from "react";
-import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import MultiStep from "../components/MultiStep";
 import MyButton from "../components/MyButton";
 import WordBreak from "../components/WordBreak";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
-import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import { createClient } from "contentful";
 import { useForm } from "react-hook-form";
 import { kelas } from "../content/kelas";
+import EventAvailableRoundedIcon from "@mui/icons-material/EventAvailableRounded";
+import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import Image from "next/image";
 import { TaglineContext } from "./_app";
 import MyTitle from "../components/MyTitle";
 import MyDesc from "../components/MyDesc";
 import ChooseProgramForm from "../components/RegistPage/ChooseProgramForm";
+import FormProvider, { RegistContext, useMyForm } from "../context/FormContext";
 import IndentityForm from "../components/RegistPage/IndentityForm";
 import PaymentForm from "../components/RegistPage/PaymentForm";
 import Xendit from "xendit-node";
 import { nanoid } from "nanoid";
-
 const helper = [
   "Hanya memerlukan 5 menit untuk mengisi formulir",
   "Akan dihubungi oleh tim",
   "Pembayaran dapat dilakukan H+2 setelah mengisi formulir pendaftaran",
 ];
 
-const Daftar = ({ paket, tagline })=>{
+function Daftar({ paket, tagline }) {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const [loading, setLoading] = useState(false);
 
@@ -57,37 +56,34 @@ const Daftar = ({ paket, tagline })=>{
   const [state, setState] = useState(0);
 
   const setInvoice = async () => {
+    setLoading(true);
+
     const x = new Xendit({
       secretKey: process.env.XENDIT_API_KEY,
     });
-
-    const resp = await fetch("https://api.xendit.co/v2/invoices", {
-      method: "POST",
-      headers: {
-        Authorization:
-          "Basic eG5kX3Byb2R1Y3Rpb25fa1BETWxwQlVvT2YwdkhIY2h0dDBFRERGS1IwWEQ1R0FwMmVkdmJiWmlBZ0loaU5iS0g5aEd3RUI5UWtKWjo=",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: {
-        external_id: `invoice-${nanoid(16)}`,
-        amount: 10000,
-        payer_email: watch("email"),
-        description: "Invoice Demo 3 Oktober",
-      },
+    const { Invoice } = x;
+    const invoiceSpecificOptions = {};
+    const i = new Invoice(invoiceSpecificOptions);
+    i.createInvoice({
+      externalID: `invoice-${nanoid(16)}`,
+      payerEmail: watch("email"),
+      description: "Invoice for Course Purchase",
+      amount: 100000,
+    }).then(({ id }) => {
+      console.log(`Invoice created with ID: ${id}`);
     });
-    console.log(resp);
+
+    setLoading(false);
   };
 
   useEffect(() => {
     setTagline(tagline);
-  }, []);
+  }, [loading]);
+
   const onSubmit = (data) => {
     setState((prev) => prev + 1);
-    if (state > 1) {
-      setLoading(true);
+    if (state == 1) {
       setInvoice();
-      setLoading(false);
     }
   };
   const step = [
@@ -153,7 +149,7 @@ const Daftar = ({ paket, tagline })=>{
                       </MyButton>
                     )}
                     <MyButton type="submit">
-                      {state == 0 ? "Mulai Pendaftaran" : "Lanjut"}
+                      {state == 0 && state < 3 ? "Mulai Pendaftaran" : "Lanjut"}
                     </MyButton>
                   </Box>
                 </Stack>
@@ -204,7 +200,7 @@ const Daftar = ({ paket, tagline })=>{
 
 export default Daftar;
 
-export const getStaticProps = async()=>{
+export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,

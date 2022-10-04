@@ -12,7 +12,7 @@ import {
 import { Box } from "@mui/system";
 import { useMyForm } from "../../context/FormContext";
 
-const MyKelas = ({ paket, name })=>{
+const MyKelas = ({ paket, name }) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   return (
     <FormControl error={errors[name] ? true : false}>
@@ -94,6 +94,6 @@ const MyKelas = ({ paket, name })=>{
       <FormHelperText>{errors[name]?.message ?? ""}</FormHelperText>
     </FormControl>
   );
-}
+};
 
-export default Mykelas
+export default MyKelas;
