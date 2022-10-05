@@ -5,7 +5,7 @@ import MyButton from "../MyButton";
 import HighlightText from "../HighlightText";
 import Zacky from '../../public/images/zacky.png'
 import Linkedn from '../../public/images/linkedn.svg'
-console.log(Linkedn);
+
 const SectionFounder2 = (props) => {
 
   return (
