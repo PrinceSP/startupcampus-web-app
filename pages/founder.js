@@ -1,5 +1,5 @@
 import React from 'react'
-import {SectionFounder1,SectionFounder2} from '../components'
+import {SectionFounder1,SectionFounder2,SectionFounder3} from '../components'
 import Head from "next/head";
 
 const Founder = () => {
@@ -10,6 +10,7 @@ const Founder = () => {
       </Head>
       <SectionFounder1/>
       <SectionFounder2/>
+      <SectionFounder3/>
     </>
   )
 }
