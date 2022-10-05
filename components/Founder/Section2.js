@@ -124,7 +124,9 @@ const SectionFounder2 = (props) => {
         </Grid>
         <Box sx={{
           height:334,
-          width:750,
+          width:"68%",
+          // minWidth:450,
+          // maxWidth:900,
           // backgroundColor:'red',
           marginTop:135,
           // marginBottom:100,
@@ -133,7 +135,19 @@ const SectionFounder2 = (props) => {
           position:'absolute',
           bottom:-200,
           right:30,
-          borderRadius:3
+          borderRadius:3,
+          zIndex:1,
+          "&::after": {
+            zIndex: "1",
+            content: "''",
+            position: "absolute",
+            height:887,
+            width:2,
+            top: -50,
+            right:445,
+            transform:"rotate(90deg)",
+            backgroundColor: "#BDBDBD",
+          },
         }}/>
       </Box>
     </>
