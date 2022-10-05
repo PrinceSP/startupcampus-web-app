@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-const HighlightText = ({ children, width = "-5%", variant })=>{
+const HighlightText = ({ children, width = "-5%", variant,...rest })=>{
   return (
     <Box
       component={"span"}
@@ -19,6 +19,7 @@ const HighlightText = ({ children, width = "-5%", variant })=>{
           left: width,
           backgroundColor: "rgba(0, 86, 210, 0.15)",
         },
+        ...rest
       }}
     >
       {children}
