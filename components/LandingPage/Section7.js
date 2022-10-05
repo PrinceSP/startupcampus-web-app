@@ -74,7 +74,7 @@ function Section7({ testimoni, title7 }) {
             },
           }}
         >
-          {testimoni?.map((item, id) => (
+          {testimoni?.slice(0).reverse().map((item, id) => (
             <SwiperSlide key={id}>
               <Stack
                 my={4}

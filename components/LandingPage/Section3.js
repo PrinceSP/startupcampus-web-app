@@ -107,26 +107,23 @@ function Section3({ course }) {
             },
           }}
         >
-          {course
-            ?.slice(0)
-            .reverse()
-            .map((value, idx) => {
-              const item = value.fields;
-              const img = item.image.fields.file;
-              return (
-                <SwiperSlide key={idx}>
-                  <Card
-                    img={img.url}
-                    title={item.title}
-                    desc={item.desc}
-                    bulan={item.durasi}
-                    level={item.level}
-                    tanggal={item.startDate}
-                    online={item.isOnline}
-                  />
-                </SwiperSlide>
-              );
-            })}
+          {course?.map((value, idx) => {
+            const item = value.fields;
+            const img = item.image.fields.file;
+            return (
+              <SwiperSlide key={idx}>
+                <Card
+                  img={img.url}
+                  title={item.title}
+                  desc={item.desc}
+                  bulan={item.durasi}
+                  level={item.level}
+                  tanggal={item.startDate}
+                  online={item.isOnline}
+                />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </Grid>
     </Grid>
