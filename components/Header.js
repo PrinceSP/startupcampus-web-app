@@ -13,8 +13,10 @@ import MyButton from "./MyButton";
 import Dropdown from "./Dropdown";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import { useRouter } from "next/router";
 
-const Header = ()=>{
+const Header = () => {
+  const router = useRouter();
   function NavItem({ children, isDropDown = false }) {
     return (
       <Typography
@@ -130,7 +132,7 @@ const Header = ()=>{
                 sx={{
                   flexGrow: 1,
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: router.pathname == "/" ? "center" : "end",
                   display: { md: "flex", sm: "none", xs: "none" },
                 }}
                 component={"nav"}
@@ -160,9 +162,11 @@ const Header = ()=>{
                   display: { md: "flex", sm: "none", xs: "none" },
                 }}
               >
-                <Link href={"/daftar"} underline="none">
-                  <MyButton>Daftar sekarang</MyButton>
-                </Link>
+                {router.pathname == "/" && (
+                  <Link href={"/daftar"} underline="none">
+                    <MyButton>Daftar sekarang</MyButton>
+                  </Link>
+                )}
               </Stack>
 
               {/* Only MOoile  */}
@@ -192,6 +196,6 @@ const Header = ()=>{
       </Drawer>
     </>
   );
-}
+};
 
-export default Header
+export default Header;

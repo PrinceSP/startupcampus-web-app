@@ -19,11 +19,12 @@ const IndentityForm = () => {
         name={"name"}
         placeholder={"alif nabila"}
       />
-      <MyInput label="Umur *" name={"age"} placeholder={"18"} />
+      <MyInput label="Umur *" name={"age"} placeholder={"18"} type="number" />
       <MyInput
         label="No. Handphone *"
         name={"num_phone"}
         placeholder={"628XXXX"}
+        type="number"
       />
       <MySelect
         label={"Darimana Kamu Mengetahui Startup Campus?*"}

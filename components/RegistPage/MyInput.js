@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Stack, TextField, Typography } from "@mui/material";
 import { useMyForm } from "../../context/FormContext";
 
-const MyInput = ({ label, name, type, placeholder, ...args })=>{
+const MyInput = ({ label, name, type, placeholder, ...args }) => {
   const { register, handleSubmit, watch, errors } = useMyForm();
   const textArea =
     type == "text-area"
@@ -21,13 +21,20 @@ const MyInput = ({ label, name, type, placeholder, ...args })=>{
       </Typography>
       <TextField
         {...register(name, {
-          required: `Isi ${name} kamu ya`,
+          required: `Mohon di isi ya`,
           pattern: {
             value:
               type == "email"
                 ? /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                : type == "number"
+                ? /[0-9]/
                 : null,
-            message: "Email tidak valid",
+            message:
+              type == "email"
+                ? "Email tidak valid"
+                : type == "number"
+                ? "Input berupa angka"
+                : "",
           },
           ...textArea,
         })}
@@ -38,6 +45,6 @@ const MyInput = ({ label, name, type, placeholder, ...args })=>{
       />
     </Stack>
   );
-}
+};
 
-export default MyInput
+export default MyInput;

@@ -22,6 +22,8 @@ export default async function handler(req, res) {
     amount: 1000,
     invoiceDuration: 300,
     shouldSendEmail: true,
+    successRedirectURL:
+      "https://startupcampus-web-app.vercel.app/payment/success",
     customer: {
       givenNames: name,
       surname: " ",
