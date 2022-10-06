@@ -13,7 +13,7 @@ const SectionFounder2 = (props) => {
       <Box sx={{ width: '100%',position:"relative", backgroundColor:"#f3f7fd"}} pt={30}>
         <Grid pt={{ xs: 2, md: 20 }} container
           direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
-          height={{ xs: "unset", md: "160vh" }} alignItems={{ md: "flex-start" }}
+          height={{ xs: "unset", md: "130vh" }} alignItems={{ md: "flex-start" }}
           justifyContent="space-around"
           >
           <Grid item xs={2} style={{
@@ -23,7 +23,7 @@ const SectionFounder2 = (props) => {
             backgroundColor:"#fff"
             }}>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} style={{position:'relative'}}>
             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}>
               <Box gridColumn="span 12">
                 <Typography color="#0056D2">Subject Matter Expert dan Mentor</Typography>
@@ -50,7 +50,7 @@ const SectionFounder2 = (props) => {
                 backgroundPosition:'center',
                 borderRadius:4
               }}/>
-              <Box gridColumn="span 8">
+             <Box gridColumn="span 8">
                 <Typography mt={2} variant="body1" fontWeight={700} color="#0056D2">
                   Achmad Zaky
                 </Typography>
@@ -71,6 +71,7 @@ const SectionFounder2 = (props) => {
                 </Grid>
               </Box>
             </Box>
+            <Box sx={{position:'absolute',height:2,width:"100%",bottom:-50,left:0,right:0,background:"#BDBDBD"}}/>
           </Grid>
         </Grid>
       </Box>
