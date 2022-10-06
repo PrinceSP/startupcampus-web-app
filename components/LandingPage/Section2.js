@@ -26,7 +26,7 @@ function Section2({ logo }) {
               key={idx}
               item
               xs={6}
-              md={3}
+              md={2.5}
               display="flex"
               justifyContent="center"
               data-aos="fade-up"
@@ -45,7 +45,7 @@ function Section2({ logo }) {
               </Box>
             </Grid>
           ))}
-        <Grid item xs={12} md={3} data-aos="fade-up">
+        <Grid item xs={12} data-aos="fade-up">
           <Typography variant="body2" color={"sc_gray.dark"} textAlign="center">
             dan banyak lagi
           </Typography>

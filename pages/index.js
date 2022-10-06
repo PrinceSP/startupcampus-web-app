@@ -1,12 +1,23 @@
 import { useContext } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
-import {Section1,Section2,Section3,Section4,Section5,Section6,Section7,Section8,Section9,Section10} from "../components";
+import {
+  Section1,
+  Section2,
+  Section3,
+  Section4,
+  Section5,
+  Section6,
+  Section7,
+  Section8,
+  Section9,
+  Section10,
+} from "../components";
 import BubbleChat from "../components/BubbleChat";
 import { createClient } from "contentful";
 import { TaglineContext } from "./_app";
 
-const Home = ({ logo, testimoni, course, tagline, title7 })=>{
+const Home = ({ logo, testimoni, course, tagline, title7, faq }) => {
   const { setTagline } = useContext(TaglineContext);
   setTagline(tagline);
   return (
@@ -24,14 +35,14 @@ const Home = ({ logo, testimoni, course, tagline, title7 })=>{
         <Section6 />
         <Section7 testimoni={testimoni} title={title7} />
         <Section8 />
-        <Section9 />
+        <Section9 faq={faq} />
       </Container>
       <Section10 />
     </>
   );
-}
+};
 
-export const getStaticProps=async()=>{
+export const getStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -56,6 +67,10 @@ export const getStaticProps=async()=>{
     content_type: "section7",
   });
 
+  const { items: faq } = await client.getEntries({
+    content_type: "faq",
+  });
+
   return {
     props: {
       logo,
@@ -63,9 +78,10 @@ export const getStaticProps=async()=>{
       course,
       tagline,
       title7,
+      faq,
     },
     revalidate: 1,
   };
-}
+};
 
-export default Home
+export default Home;

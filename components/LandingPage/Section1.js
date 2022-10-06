@@ -20,9 +20,12 @@ function Section1({ tagline }) {
         <Stack spacing={2} alignItems="start" className="hero-text">
           <Typography variant="h4" fontWeight={800}>
             {tagline[0]?.fields?.title}
+            <br />
             <Box component="span" sx={{ color: "sc_blue.main" }}>
               {tagline[0]?.fields?.hashtag}
             </Box>
+            <br />
+            {tagline[0]?.fields?.subtitle}
           </Typography>
           <Typography variant="body1" lineHeight={2}>
             {tagline[0]?.fields?.desc}

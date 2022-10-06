@@ -8,13 +8,16 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { qna } from "../../content/qna";
 import HighlightText from "../HighlightText";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MyButton from "../MyButton";
+import ReactMarkdown from "react-markdown";
 
-function Section9() {
+function Section9({ faq }) {
+  const [state, setState] = useState(5);
+  const qna = faq?.slice(0).reverse();
   return (
     <Grid container spacing={3} my={6} py={6}>
       <Grid item xs={12} data-aos="fade-down">
@@ -22,9 +25,9 @@ function Section9() {
           <HighlightText width="-2%">Frequently</HighlightText> Asked Question’s
         </Typography>
       </Grid>
-      {qna.map((item) => (
+      {qna.slice(0, state).map((item, idx) => (
         <Grid
-          key={item.q}
+          key={idx}
           item
           xs={12}
           display="flex"
@@ -44,13 +47,13 @@ function Section9() {
                 id="panel1a-header"
               >
                 <Typography variant="h6" fontWeight={600}>
-                  {item.q}
+                  {item?.fields.question}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Divider />
                 <Typography mt={4} variant="body2" color="sc_gray.dark">
-                  {item.a}
+                  <ReactMarkdown>{item?.fields.answer}</ReactMarkdown>
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -58,7 +61,13 @@ function Section9() {
         </Grid>
       ))}
       <Grid item xs={12} display="flex" justifyContent={"center"}>
-        <MyButton>Lihat lebih banyak</MyButton>
+        {state < faq.length ? (
+          <MyButton onClick={() => setState((prev) => prev + 5)}>
+            Lihat lebih banyak
+          </MyButton>
+        ) : (
+          <MyButton onClick={() => setState(5)}>Lihat lebih sedikit</MyButton>
+        )}
       </Grid>
     </Grid>
   );

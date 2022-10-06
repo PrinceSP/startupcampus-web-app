@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,7 +6,18 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import {Container,Divider,Drawer,Link,List,ListItem,ListItemButton,ListItemIcon,ListItemText,Stack} from "@mui/material";
+import {
+  Container,
+  Divider,
+  Drawer,
+  Link,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Stack,
+} from "@mui/material";
 import Image from "next/image";
 import { ExpandMoreRounded, ShoppingCartOutlined } from "@mui/icons-material";
 import MyButton from "./MyButton";
@@ -14,6 +25,25 @@ import Dropdown from "./Dropdown";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useRouter } from "next/router";
+
+const sideMenu = [
+  {
+    name: "Program",
+    url: "/#program",
+  },
+  {
+    name: "Testimoni",
+    url: "/#testimoni",
+  },
+  {
+    name: "Blog",
+    url: "/Blog",
+  },
+  {
+    name: "Tentang Kami",
+    url: "/tentang-kami",
+  },
+];
 
 const Header = () => {
   const router = useRouter();
@@ -67,39 +97,35 @@ const Header = () => {
     <Box
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
-        // m: 4,
-        // borderRadius: "100px",
-        // backgroundColor: "red",
       }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
+        {sideMenu.map((text, index) => (
+          <Link href={text.url} underline="none">
+            <Typography color="sc_black.main">
+              <ListItem key={index} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text.name} />
+                </ListItemButton>
+              </ListItem>
+            </Typography>
+          </Link>
         ))}
+        <Divider />
       </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <Stack alignItems={"center"}>
+        {router.pathname == "/" && (
+          <Link href={"/daftar"} underline="none">
+            <MyButton>Daftar sekarang</MyButton>
+          </Link>
+        )}
+      </Stack>
     </Box>
   );
 
@@ -186,7 +212,19 @@ const Header = () => {
       </Box>
       <Drawer
         sx={{
-          display: { xs: "block", sm: "block", md: "none" },
+          display: {
+            xs: "block",
+            sm: "block",
+            md: "none",
+          },
+        }}
+        PaperProps={{
+          sx: {
+            borderRadius: "16px",
+            top: "16px",
+            left: "16px",
+            height: "95%",
+          },
         }}
         anchor={"left"}
         open={state["left"]}
