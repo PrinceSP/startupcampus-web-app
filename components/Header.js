@@ -104,9 +104,9 @@ const Header = () => {
     >
       <List>
         {sideMenu.map((text, index) => (
-          <Link href={text.url} underline="none">
+          <Link href={text.url} key={index} underline="none">
             <Typography color="sc_black.main">
-              <ListItem key={index} disablePadding>
+              <ListItem disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
