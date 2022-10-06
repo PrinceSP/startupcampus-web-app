@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
 import {Section1,Section2,Section3,Section4,Section5,Section6,Section7,Section8,Section9,Section10} from "../components";

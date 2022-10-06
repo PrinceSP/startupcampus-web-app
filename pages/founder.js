@@ -1,8 +1,9 @@
 import React from 'react'
-import {SectionFounder1,SectionFounder2} from '../components'
+import {SectionFounder1,SectionFounder2,SectionFounder3,SectionFounder4,Section2,SectionFounder5} from '../components'
 import Head from "next/head";
+import { createClient } from "contentful";
 
-const Founder = () => {
+const Founder = ({logo}) => {
   return (
     <>
       <Head>
@@ -10,8 +11,30 @@ const Founder = () => {
       </Head>
       <SectionFounder1/>
       <SectionFounder2/>
+      <SectionFounder3/>
+      <SectionFounder4/>
+      <Section2 logo={logo}/>
+      <SectionFounder5/>
     </>
   )
+}
+
+export const getStaticProps=async()=>{
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  const { items: logo } = await client.getEntries({
+    content_type: "logoCompany",
+  });
+
+  return {
+    props: {
+      logo,
+    },
+    revalidate: 1,
+  };
 }
 
 export default Founder

@@ -1,6 +1,6 @@
+import React from "react";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import React, { useEffect } from "react";
 import { count } from "../../content/count";
 import HighlightText from "../HighlightText";
 import WordBreak from "../WordBreak";
