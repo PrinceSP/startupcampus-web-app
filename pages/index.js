@@ -69,6 +69,7 @@ export const getStaticProps = async () => {
 
   const { items: faq } = await client.getEntries({
     content_type: "faq",
+    order: "sys.createdAt",
   });
 
   return {

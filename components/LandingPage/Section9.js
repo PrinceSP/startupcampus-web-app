@@ -17,7 +17,7 @@ import ReactMarkdown from "react-markdown";
 
 function Section9({ faq }) {
   const [state, setState] = useState(5);
-  const qna = faq?.slice(0).reverse();
+  const qna = faq?.slice(0);
   return (
     <Grid container spacing={3} my={6} py={6}>
       <Grid item xs={12} data-aos="fade-down">
