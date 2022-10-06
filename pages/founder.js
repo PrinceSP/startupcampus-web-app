@@ -12,8 +12,8 @@ const Founder = ({logo}) => {
       <SectionFounder1/>
       <SectionFounder2/>
       <SectionFounder3/>
-      <Section2 logo={logo}/>
       <SectionFounder4/>
+      <Section2 logo={logo}/>
     </>
   )
 }
