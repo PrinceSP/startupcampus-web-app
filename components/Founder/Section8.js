@@ -13,7 +13,7 @@ const SectionFounder8 = (props) => {
       <Box sx={{ width: '100%',position:"relative" }} >
         <Grid pt={{ xs: 2, md: 3 }} container
           direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
-          height={{ xs: "unset", md: "200vh" }} alignItems={{ md: "flex-start" }}
+          height={{ xs: "unset", md: "160vh" }} alignItems={{ md: "flex-start" }}
           justifyContent="space-around"
           style={{backgroundColor:"#fff"}}
           >
@@ -53,7 +53,6 @@ const SectionFounder8 = (props) => {
                     kata “habis” untuk belajar.
                   </Typography>
                   <Grid mt={7} container direction="column">
-
                     <Typography ml={2} variant="body1" fontWeight={500} color="#2B2C27">
                       Virginia Theresya Sembiring
                     </Typography>

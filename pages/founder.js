@@ -1,5 +1,5 @@
 import React from 'react'
-import {SectionFounder1,SectionFounder2,SectionFounder3,SectionFounder4,Section2,SectionFounder5,SectionFounder6,SectionFounder7,SectionFounder8,SectionFounder9} from '../components'
+import {SectionFounder1,SectionFounder2,SectionFounder3,SectionFounder4,Section2,SectionFounder5,SectionFounder6,SectionFounder7,SectionFounder8,SectionFounder9,SectionFounder10} from '../components'
 import Head from "next/head";
 import { createClient } from "contentful";
 
@@ -18,6 +18,7 @@ const Founder = ({logo,faq}) => {
       <SectionFounder6/>
       <SectionFounder7/>
       <SectionFounder8/>
+      <SectionFounder10/>
       <SectionFounder9 faq={faq} showBtn={false}/>
     </>
   )
