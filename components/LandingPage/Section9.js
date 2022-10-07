@@ -9,13 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { qna } from "../../content/qna";
 import HighlightText from "../HighlightText";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from '@mui/icons-material/Add';
 import MyButton from "../MyButton";
 import ReactMarkdown from "react-markdown";
 
-function Section9({ faq }) {
+function Section9({ faq}) {
   const [state, setState] = useState(5);
   const qna = faq?.slice(0);
   return (
@@ -42,7 +41,7 @@ function Section9({ faq }) {
               }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<AddIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
@@ -60,7 +59,7 @@ function Section9({ faq }) {
           </Stack>
         </Grid>
       ))}
-      <Grid item xs={12} display="flex" justifyContent={"center"}>
+      {<Grid item xs={12} display="flex" justifyContent={"center"}>
         {state < faq.length ? (
           <MyButton onClick={() => setState((prev) => prev + 5)}>
             Lihat lebih banyak
@@ -68,7 +67,7 @@ function Section9({ faq }) {
         ) : (
           <MyButton onClick={() => setState(5)}>Lihat lebih sedikit</MyButton>
         )}
-      </Grid>
+      </Grid>}
     </Grid>
   );
 }
