@@ -1,9 +1,9 @@
 import React from 'react'
-import {SectionFounder1,SectionFounder2,SectionFounder3,SectionFounder4,Section2,SectionFounder5,SectionFounder6} from '../components'
+import {SectionFounder1,SectionFounder2,SectionFounder3,SectionFounder4,Section2,SectionFounder5,SectionFounder6,SectionFounder7,SectionFounder9} from '../components'
 import Head from "next/head";
 import { createClient } from "contentful";
 
-const Founder = ({logo}) => {
+const Founder = ({logo,faq}) => {
   return (
     <>
       <Head>
@@ -16,6 +16,8 @@ const Founder = ({logo}) => {
       <Section2 logo={logo}/>
       <SectionFounder5/>
       <SectionFounder6/>
+      <SectionFounder7/>
+      <SectionFounder9 faq={faq} showBtn={false}/>
     </>
   )
 }
@@ -30,9 +32,15 @@ export const getStaticProps=async()=>{
     content_type: "logoCompany",
   });
 
+  const { items: faq } = await client.getEntries({
+    content_type: "faq",
+    order: "sys.createdAt",
+  });
+
   return {
     props: {
       logo,
+      faq,
     },
     revalidate: 1,
   };
