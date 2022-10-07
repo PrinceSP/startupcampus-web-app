@@ -9,14 +9,16 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { qnaFounder } from "../../content/qnaFounder";
 import HighlightText from "../HighlightText";
 import AddIcon from '@mui/icons-material/Add';
 import MyButton from "../MyButton";
 import ReactMarkdown from "react-markdown";
 
-function Section9({ faq}) {
+function SectionFounder9({ faq,showBtn=true}) {
   const [state, setState] = useState(5);
-  const qna = faq?.slice(0);
+  // qnaFounder = faq?.slice(0);
+
   return (
     <Grid container spacing={3} my={6} py={6}>
       <Grid item xs={12} data-aos="fade-down">
@@ -24,7 +26,8 @@ function Section9({ faq}) {
           <HighlightText width="-2%">Frequently</HighlightText> Asked Question’s
         </Typography>
       </Grid>
-      {qna.slice(0, state).map((item, idx) => (
+      {qnaFounder.slice(0, state).map((item,idx,arr)=>(
+        // console.log(item)
         <Grid
           key={idx}
           item
@@ -46,20 +49,20 @@ function Section9({ faq}) {
                 id="panel1a-header"
               >
                 <Typography variant="h6" fontWeight={600}>
-                  {item?.fields.question}
+                  {item?.q}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Divider />
                 <Typography mt={4} variant="body2" color="sc_gray.dark">
-                  <ReactMarkdown>{item?.fields.answer}</ReactMarkdown>
+                  <ReactMarkdown>{item?.a}</ReactMarkdown>
                 </Typography>
               </AccordionDetails>
             </Accordion>
           </Stack>
         </Grid>
       ))}
-      {<Grid item xs={12} display="flex" justifyContent={"center"}>
+      {showBtn && <Grid item xs={12} display="flex" justifyContent={"center"}>
         {state < faq.length ? (
           <MyButton onClick={() => setState((prev) => prev + 5)}>
             Lihat lebih banyak
@@ -72,4 +75,4 @@ function Section9({ faq}) {
   );
 }
 
-export default Section9;
+export default SectionFounder9;
