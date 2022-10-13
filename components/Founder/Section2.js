@@ -11,15 +11,6 @@ import HandshakeIcon from '@mui/icons-material/Handshake';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import Meeting2 from '../../public/images/meeting2.png'
 
-const Item = styled(Paper)(({ theme,color="#000",fontWeight=500,fontSize=16 }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'left',
-  color,fontWeight,
-  fontSize
-}));
-
 const SectionFounder2 = (props) => {
 
   return (

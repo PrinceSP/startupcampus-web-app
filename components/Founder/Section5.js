@@ -11,20 +11,11 @@ import HandshakeIcon from '@mui/icons-material/Handshake';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import TwoPeople from '../../public/images/twopeopple.png'
 
-const Item = styled(Paper)(({ theme,color="#000",fontWeight=500,fontSize=16 }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'left',
-  color,fontWeight,
-  fontSize
-}));
-
 const SectionFounder5 = (props) => {
 
   return (
     <>
-      <Box mb={70} sx={{ width: '100%',position:"relative" }} >
+      <Box mb={40} sx={{ width: '100%',position:"relative" }} >
         <Grid pt={{ xs: 2, md: 20 }} container
           direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
           height={{ xs: "unset", md: "130vh" }} alignItems={{ md: "flex-start" }}
