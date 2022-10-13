@@ -79,7 +79,6 @@ function Section7({ testimoni, title7 }) {
             ?.slice(0)
             .reverse()
             .map((item, id) => {
-              console.log(item.fields?.fotoTestimoni?.fields.file.url);
               const img = item.fields?.fotoTestimoni?.fields.file.url;
               return (
                 <SwiperSlide key={id}>
