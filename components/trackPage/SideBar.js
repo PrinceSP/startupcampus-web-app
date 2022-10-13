@@ -21,7 +21,7 @@ export default function SideBar() {
       <Typography fontWeight={700}>Detail Program</Typography>
       <Divider />
       {listMenu.map((item, idx) => (
-        <Link href={item.link} underline="none">
+        <Link href={item.link} underline="none" key={idx}>
           <Typography fontWeight={400} variant="body2" color={"sc_gray.dark"}>
             {item.name}
           </Typography>
