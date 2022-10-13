@@ -120,7 +120,7 @@ const Header = () => {
         <Divider />
       </List>
       <Stack alignItems={"center"}>
-        {router.pathname == "/" && (
+        {router.pathname != "/daftar" && (
           <Link href={"/daftar"} underline="none">
             <MyButton>Daftar sekarang</MyButton>
           </Link>
@@ -132,13 +132,17 @@ const Header = () => {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar color="transparent" elevation={0} position="absolute">
+        <AppBar
+          color={router.pathname == "/" ? "transparent" : ""}
+          elevation={0}
+          position="absolute"
+        >
           <Container>
             <Toolbar
               sx={{
                 justifyContent: { sm: "space-between", xs: "space-between" },
                 alignItems: "center",
-                my: { xs: 2, sm: 4 },
+                my: { xs: 0, sm: 1 },
                 px: "0 !important",
               }}
             >
@@ -158,7 +162,8 @@ const Header = () => {
                 sx={{
                   flexGrow: 1,
                   alignItems: "center",
-                  justifyContent: router.pathname == "/" ? "center" : "end",
+                  justifyContent:
+                    router.pathname != "/daftar" ? "center" : "end",
                   display: { md: "flex", sm: "none", xs: "none" },
                 }}
                 component={"nav"}
@@ -188,7 +193,7 @@ const Header = () => {
                   display: { md: "flex", sm: "none", xs: "none" },
                 }}
               >
-                {router.pathname == "/" && (
+                {router.pathname != "/daftar" && (
                   <Link href={"/daftar"} underline="none">
                     <MyButton>Daftar sekarang</MyButton>
                   </Link>
