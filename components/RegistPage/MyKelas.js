@@ -26,7 +26,7 @@ const MyKelas = ({ paket, name }) => {
             ?.slice(0)
             .reverse()
             .map((val, i) => (
-              <Grid key={i} item xs={12} md={6}>
+              <Grid key={i} item xs={12} md={12}>
                 <Stack
                   component="label"
                   width="100%"
@@ -96,6 +96,4 @@ const MyKelas = ({ paket, name }) => {
   );
 };
 
-
-export default MyKelas
-
+export default MyKelas;

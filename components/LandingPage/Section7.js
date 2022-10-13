@@ -11,6 +11,7 @@ import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRound
 import MyButton from "../MyButton";
 
 function Section7({ testimoni, title7 }) {
+  // console.log(testimoni);
   const swiper = useSwiper();
   return (
     <Grid container my={9} pt={4}>
@@ -74,46 +75,57 @@ function Section7({ testimoni, title7 }) {
             },
           }}
         >
-          {testimoni?.slice(0).reverse().map((item, id) => (
-            <SwiperSlide key={id}>
-              <Stack
-                my={4}
-                mx={1}
-                spacing={3}
-                p={4}
-                sx={{
-                  background: "#FFFFFF",
-                  boxShadow: "0px 8px 20px rgba(43, 44, 39, 0.1)",
-                  borderRadius: "20px",
-                }}
-              >
-                <Typography variant="h6" color="sc_blue.main" fontWeight={700}>
-                  {item.fields.title}
-                </Typography>
-                <Typography variant="body1" color="sc_gray.dark">
-                  {item.fields.description}
-                </Typography>
-                <Stack direction="row" spacing={2} alignItems="center">
-                  <Avatar
-                    alt={item.fields.namaTestimoni}
-                    src={`https:${item.fields.logo?.fields.file.url}`}
-                  />
-                  <Stack>
+          {testimoni
+            ?.slice(0)
+            .reverse()
+            .map((item, id) => {
+              console.log(item.fields?.fotoTestimoni?.fields.file.url);
+              const img = item.fields?.fotoTestimoni?.fields.file.url;
+              return (
+                <SwiperSlide key={id}>
+                  <Stack
+                    my={4}
+                    mx={1}
+                    spacing={3}
+                    p={4}
+                    sx={{
+                      background: "#FFFFFF",
+                      boxShadow: "0px 8px 20px rgba(43, 44, 39, 0.1)",
+                      borderRadius: "20px",
+                    }}
+                  >
                     <Typography
                       variant="h6"
                       color="sc_blue.main"
                       fontWeight={700}
                     >
-                      {item.fields.namaTestimoni}
+                      {item.fields.title}
                     </Typography>
-                    <Typography variant="body2" color="sc_gray.dark">
-                      {item.fields.pekerjaan}
+                    <Typography variant="body1" color="sc_gray.dark">
+                      {item.fields.description}
                     </Typography>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <Avatar
+                        alt={item.fields.namaTestimoni}
+                        src={img ? `https:` + img : null}
+                      />
+                      <Stack>
+                        <Typography
+                          variant="h6"
+                          color="sc_blue.main"
+                          fontWeight={700}
+                        >
+                          {item.fields.namaTestimoni}
+                        </Typography>
+                        <Typography variant="body2" color="sc_gray.dark">
+                          {item.fields.pekerjaan}
+                        </Typography>
+                      </Stack>
+                    </Stack>
                   </Stack>
-                </Stack>
-              </Stack>
-            </SwiperSlide>
-          ))}
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </Grid>
       {/* <Grid item xs={12} py={2} data-aos="fade-left">

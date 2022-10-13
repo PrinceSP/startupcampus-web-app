@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     payerEmail: email,
     description:
       "Invoice pembelian kelas " + paket + ", untuk program " + program,
-    amount: 1000,
+    amount: 4015050,
     invoiceDuration: 300,
     shouldSendEmail: true,
     successRedirectURL:
