@@ -22,13 +22,14 @@ const SectionFounder2 = (props) => {
           justifyContent="space-around"
           style={{backgroundColor:"#fff"}}
           >
-          <Grid item xs={2} style={{
-            width:247,
+          <Grid item xs={2} mb={{xs:20}} style={{
             boxShadow: "0px 16px 40px rgba(112, 144, 176, 0.2)",
             borderRadius: 10,
             backgroundColor:"#fff"
-            }}>
-            <Stack spacing={4} style={{padding:23}}>
+            }}
+            width={{ xs: "unset", md: 247 }}>
+            <Stack spacing={4} style={{padding:23}}
+              alignItems={{ xs: "center",md:'flex-start' }}>
              <Typography variant="h6" style={{width:"100%",height:50,borderBottom:"2px solid #BDBDBD"}}>Detail Program</Typography>
              <Typography variant="caption">Tentang Program</Typography>
              <Typography variant="caption">List SME dan Mentor</Typography>
@@ -40,7 +41,7 @@ const SectionFounder2 = (props) => {
              <MyButton>Daftar Sekarang</MyButton>
             </Stack>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} p={{xs:2,sm:3,md:0}}>
             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}>
               <Box gridColumn="span 12">
                 <Typography color="#0056D2">Tentang Program</Typography>
@@ -123,6 +124,7 @@ const SectionFounder2 = (props) => {
           // marginBottom:100,
           backgroundImage:`url(${Meeting2.src})`,
           backgroundSize:'cover',
+          backgroundPosition:'center',
           position:'absolute',
           bottom:-200,
           right:30,

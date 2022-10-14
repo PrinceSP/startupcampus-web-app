@@ -29,7 +29,7 @@ const SectionFounder5 = (props) => {
             backgroundColor:"#fff"
             }}>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} p={{xs:4,md:0}} mb={{xs:20,md:0}}>
             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}>
               <Box gridColumn="span 12">
                 <Typography color="#0056D2">Bimbingan Karier</Typography>
@@ -72,7 +72,7 @@ const SectionFounder5 = (props) => {
                   Terhubung secara berkelanjutan dengan 21+ perusahaan yang bekerja sama dengan Startup Campus.
                 </Typography>
               </Box>
-              <Box mt={5} gridColumn="span 12">
+              <Box mt={5} gridColumn="span 12" direction="row">
                 <Typography variant="body2" color="#2B2C27">Setelah kamu menjadi Alumni Program Founder Startup Campus, kamu dapat berjejaring dengan alumni dari program
                   Startup Campus lain yang tersebar di seluruh Indonesia bahkan dunia.
                 </Typography>
@@ -90,6 +90,7 @@ const SectionFounder5 = (props) => {
           // marginBottom:100,
           backgroundImage:`url(${TwoPeople.src})`,
           backgroundSize:'cover',
+          backgroundPosition:'center',
           position:'absolute',
           bottom:-200,
           right:30,

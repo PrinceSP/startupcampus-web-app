@@ -13,7 +13,7 @@ const SectionFounder8 = (props) => {
       <Box sx={{ width: '100%',position:"relative" }} >
         <Grid pt={{ xs: 2, md: 3 }} container
           direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
-          height={{ xs: "unset", md: "160vh" }} alignItems={{ md: "flex-start" }}
+          height={{ xs: "unset", md: "100vh" }} alignItems={{ md: "flex-start" }}
           justifyContent="space-around"
           style={{backgroundColor:"#fff"}}
           >
@@ -24,14 +24,14 @@ const SectionFounder8 = (props) => {
             backgroundColor:"#fff"
             }}>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} p={{xs:3,md:0}}>
             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}>
               <Box gridColumn="span 12">
                 <Typography color="#0056D2">Testimoni</Typography>
               </Box>
               <Box gridColumn="span 12">
                 <Typography variant="h4" fontWeight={700}>
-                  <HighlightText backgroundColor="#D9E6F8" paddingTop={1} paddingBottom={1} paddingLeft={2} paddingRight={2}width="-2%">Kata Mereka</HighlightText>
+                  <HighlightText backgroundColor="#D9E6F8" paddingLeft={2} paddingRight={2} width="-2%" >Kata Mereka</HighlightText>
                   Tentang Founder Startup Campus{" "}
                 </Typography>
               </Box>

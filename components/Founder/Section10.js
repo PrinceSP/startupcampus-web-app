@@ -12,10 +12,10 @@ const SectionFounder10 = (props) => {
 
   return (
     <>
-      <Box mb={20} sx={{ width: '100%',position:"relative" }} >
-        <Grid pt={{ xs: 2, md: 3 }} container
+      <Box mb={{xs:50,md:90}} sx={{ width: '100%',position:"relative" }} >
+        <Grid pt={{ xs: 2, md: 6 }} container
           direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
-          height={{ xs: "unset", md: "150vh" }} alignItems={{ md: "flex-start" }}
+          height={{ xs: "unset", md: "100vh" }} alignItems={{ md: "flex-start" }}
           justifyContent="space-around"
           style={{backgroundColor:"#faf7ff"}}
           >
@@ -26,7 +26,7 @@ const SectionFounder10 = (props) => {
             backgroundColor:"#fff"
             }}>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} p={{xs:4,md:0}}>
             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}>
               <Box gridColumn="span 12">
                 <Typography color="#0056D2">Portofolio Alumni</Typography>

@@ -174,9 +174,9 @@ const SectionFounder4 = (props) => {
                   <Typography color="#0056D2">Kurikulum</Typography>
                 </Box>
                 <Box gridColumn="span 12" data-aos="zoom-in-right">
-                  <Typography variant="h4" fontWeight={700}>
+                  <Typography variant="h4" fontWeight={700} >
                     4 Langkah Untuk Menjadi{" "}
-                    <HighlightText backgroundColor="#D9E6F8" paddingTop={1} paddingBottom={1} paddingLeft={2} paddingRight={2}width="-2%">Founder</HighlightText>
+                    <HighlightText mt={{xs:5,md:0}} backgroundColor="#D9E6F8" paddingTop={1} paddingBottom={1} paddingLeft={2} paddingRight={2}width="-2%">Founder</HighlightText>
                   </Typography>
                 </Box>
                 <Box gridColumn="span 12">

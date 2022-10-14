@@ -20,7 +20,7 @@ function SectionFounder9({ faq,showBtn=true}) {
   // qnaFounder = faq?.slice(0);
 
   return (
-    <Grid container spacing={3} my={6} py={6}>
+    <Grid container spacing={3} my={6} py={6} p={{xs:4,md:0}}>
       <Grid item xs={12} data-aos="fade-down">
         <Typography variant="h4" textAlign="center" fontWeight={700}>
           <HighlightText width="-2%">Frequently</HighlightText> Asked Question’s

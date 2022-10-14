@@ -37,7 +37,7 @@ const SectionFounder6 = (props) => {
             backgroundColor:"#fff"
             }}>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={8} p={{xs:4,md:0}}>
             <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}>
               <Box gridColumn="span 12">
                 <Typography color="#0056D2">Biaya Pendidikan</Typography>

@@ -23,25 +23,23 @@ const SectionFounder2 = (props) => {
             backgroundColor:"#fff"
             }}>
           </Grid>
-          <Grid item xs={8} style={{position:'relative'}}>
-            <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}>
-              <Box gridColumn="span 12">
+          <Grid item p={{xs:2,md:0}} xs={8} style={{position:'relative'}} >
+            <Grid xs={12} container gap={4} direction={{xs:"column",md:"row"}}>
+              <Grid item xs={12}>
                 <Typography color="#0056D2">Subject Matter Expert dan Mentor</Typography>
-              </Box>
-              <Box gridColumn="span 12">
+              </Grid>
+              <Grid item xs={12}>
                 <Typography variant="h4" fontWeight={700}>
                   Belajar Langsung dari{" "}
                   <HighlightText backgroundColor="#D9E6F8" paddingTop={1} paddingBottom={1} paddingLeft={2} paddingRight={2}width="-2%">Ahlinya</HighlightText>
                 </Typography>
-              </Box>
-              <Box gridColumn="span 12">
+              </Grid>
+              <Grid item xs={12}>
                 <Typography variant="body2">
                   Terhubung dengan Subject Matter Expert (SME) dan mentor yang berpengalaman dari berbagai perusahaan digital terkemuka.
                 </Typography>
-              </Box>
-              <Box gridColumn="span 4" sx={{
-                height:304,
-                width:"100%",
+              </Grid>
+              <Grid item xs={4} height={{xs:"unset",md:304}} width={{xs:"unset",md:"100%"}} sx={{
                 // minWidth:450,
                 // maxWidth:900,
                 backgroundColor:'#fff',
@@ -50,7 +48,7 @@ const SectionFounder2 = (props) => {
                 backgroundPosition:'center',
                 borderRadius:4
               }}/>
-             <Box gridColumn="span 8">
+            <Grid item xs={8}>
                 <Typography mt={2} variant="body1" fontWeight={700} color="#0056D2">
                   Achmad Zaky
                 </Typography>
@@ -69,8 +67,8 @@ const SectionFounder2 = (props) => {
                     Lebih Dekat Dengan Achmad Zaky
                   </Typography>
                 </Grid>
-              </Box>
-            </Box>
+              </Grid>
+            </Grid>
             <Box sx={{position:'absolute',height:2,width:"100%",bottom:-50,left:0,right:0,background:"#BDBDBD"}}/>
           </Grid>
         </Grid>

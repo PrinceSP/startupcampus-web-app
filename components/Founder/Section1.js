@@ -44,45 +44,52 @@ const SectionFounder1 = (props) => {
                 hingga menjadi MVP(Minimum Viable Product)
               </Typography>
             </Stack>
-            <Grid container mt={4}>
-              <Grid item xs={4}>
+            <Grid container mt={4}
+              component="section"
+              direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
+              mb={{ xs: 2,sm:4, md: 0 }}
+              >
+              <Grid item xs={4} mb={{ xs: 1.5,sm:2, md: 0 }}>
                 <MyButton href={"#program"}>Daftar Sekarang</MyButton>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={4} mb={{ xs: 1.5,sm:2, md: 0 }}>
                 <MyButton variant="outlined" color="sc_white" href={"#program"}>Lihat Detail</MyButton>
               </Grid>
             </Grid>
           </Grid>
         </Box>
         <Grid
-          style={{width:891,height:95,backgroundColor:"#fff",margin:"auto",borderRadius:10,position:"relative",bottom:50,boxShadow: "0px 16px 40px rgba(43, 44, 39, 0.2)",zIndex:1}}
+          style={{backgroundColor:"#fff",margin:"auto",borderRadius:10,position:"relative",bottom:50,boxShadow: "0px 16px 40px rgba(43, 44, 39, 0.2)",zIndex:1}}
+          height={{ xs: "unset", md:95 }}
+          width={{ xs: "unset", md:891 }}
+          p={{xs: 2, md: 0}}
           container
-          direction="row"
+          direction={{ xs: "column", sm: "column", md: "row" }}
           justifyContent="space-between"
           alignItems="center"
           spacing={8}>
-          <Grid container xs direction="row" alignItems="center" justifyContent="center">
+          <Grid container mb={{xs: 2, md: 0}} xs direction="row" alignItems="center" justifyContent="center">
             <DateRangeIcon fontSize="small"/>
             <Typography variant="body1">Kelas Terdekat</Typography>
           </Grid>
-          <Grid container xs={4} direction={{ xs: "column", sm: "column", md: "column" }} justifyContent="center">
+          <Grid container mb={{xs: 2, md: 0}} xs={4} direction={{ xs: "row", sm: "row", md: "column" }} justifyContent="center">
             <Grid container direction="row">
               <VideoLibraryIcon fontSize="small"/>
               <Typography variant="body2">Skills Level Up</Typography>
             </Grid>
-            <Grid container direction={{ xs: "column", sm: "column", md: "row" }}>
+            <Grid container direction={{ xs: "row", sm: "row", md: "row" }}>
               <Typography variant="body2">23 Sep - 25 Feb 2023</Typography>
               <Link>
                 <Typography variant="body2">Lihat disini</Typography>
               </Link>
             </Grid>
           </Grid>
-          <Grid container xs={5} direction={{ xs: "column", sm: "column", md: "column" }} justifyContent="center">
-            <Grid container direction={{ xs: "column", sm: "column", md: "row" }}>
+          <Grid container mb={{xs: 2, md: 0}} xs={5} direction={{ xs: "row", sm: "row", md: "row" }} justifyContent="center">
+            <Grid container direction="row">
               <VideoLibraryIcon fontSize="small"/>
               <Typography variant="body2">Study Independen (Kampus Merdeka)</Typography>
             </Grid>
-            <Grid container xs direction={{ xs: "column", sm: "column", md: "row" }}>
+            <Grid container xs direction={{ xs: "row", sm: "row", md: "row" }}>
               <Typography variant="body2">23 Sep - 25 Feb 2023</Typography>
               <Link>
                 <Typography variant="body2">Lihat disini</Typography>
